@@ -14,7 +14,7 @@ import styles from "../../../components/uploads.module.css";
 import Length from "../../../components/dashboard/length/Length";
 import Bust from "../../../components/dashboard/bust/Bust";
 import Sleeves from "../../../components/dashboard/sleeves/Sleeves";
-import ProductPriceStock from "../../../components/dashboard/product-price-stock/productPriceStock";
+// import ProductPriceStock from "../../../components/dashboard/product-price-stock/ProductPriceStock";
 import ChooseImage from "../../../components/dashboard/choose-image/ChooseImage";
 import ChooseImageModal from "../../../components/dashboard/choose-image-modal/ChooseImageModal";
 import TwoTabs from "../../../components/dashboard/two-tabs/TwoTabs";
