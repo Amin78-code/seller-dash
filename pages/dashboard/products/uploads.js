@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Layout from "../../../components/layout/layout";
@@ -21,7 +21,6 @@ const ordersData = [
   { title: "Cancelled orders", value: "0" },
   { title: "Successful orders", value: "0" },
 ];
-const productCategories = ["Abaya", "Kaftan", "Dress", "Farwa", "Kimono"];
 const productTypes = [
   "Choose Type",
   "Made-to-Measure,Made in Bahrain",
@@ -180,7 +179,27 @@ const galleryImageData = {
   imageResolution: "(900x1200)",
 };
 
+
 function AddNewProduct() {
+  const [productCategories, setProductCategories] = useState(["Abaya", "Kaftan", "Dress", "Farwa", "Kimono"]);
+  const [productCategoriesForShow, setProductCategoriesForShow] = useState(["Abaya", "Kaftan", "Dress", "Farwa", "Kimono"]);
+
+
+
+  
+
+  // let initialData = [];
+  //  useEffect(() => {
+
+  //   for (let i = 0; i < productCategories.length; i++) {
+  //     initialData.push(productCategories[i])
+  //   }
+  // }, []);
+
+  
+
+
+
   const [selectedCategory, setSelectedCategory] = useState("Abaya");
   const [selectedType, setSelectedType] = useState("Choose Type");
   const [selectedSizeAndFit, setSelectedSizeAndFit] =
@@ -590,6 +609,22 @@ function AddNewProduct() {
     //  remaining to do
   };
 
+  const changeHandler = (event, filterName) => {
+
+
+    console.log("initialData", initialData);
+
+    let _productCategories = filterName;
+    // setProductCategories(_productCategories);
+    let __productCategories = [];
+      // setProductCategoriesForShow(_productCategories);
+    for (let i = 0; i < _productCategories.length; i++) {
+       __productCategories.push(filterName[i].toLowerCase())
+    }
+    const startsWithN = __productCategories.filter((country) => country.startsWith(event.target.value.toLowerCase()));
+    setProductCategoriesForShow(startsWithN);
+  };
+
   return (
     <>
       <Layout>
@@ -625,28 +660,32 @@ function AddNewProduct() {
                           className="admin-input relative w-[100%] h-[44px] leading-[30px] text-[#b7b7b7] text-[1rem] bg-[#fff] border-[1px]  rounded-[.25rem] py-[0.375rem] px-[0.75rem] border-[#ced4da] cursor-pointer    before:absolute before:w-[0] before:h-[0] before:border-[4px] before:border-t-[#b7b7b7] before:border-l-[transparent] before:border-r-[transparent] before:border-b-[transparent] before:top-[18px] before:right-[10px]"
                           id="categorySelect"
                         >
-                          <div onClick={() => openCategorySelect()}>
+                          <div onClick={() => openCategorySelect()} className="capitalize">
                             {selectedCategory ? selectedCategory : ""}
                           </div>
                           <div
                             ref={categorySelect}
-                            className="absolute w-[100%] left-0 top-[43px] dnone"
+                            className="absolute w-[100%] left-0 top-[43px] z-[1] dnone"
                           >
                             <div className="w-[100%] mt-[0px] py-[10px] bg-[#fff] z-[2] border-[1px] border-[#00000026] drop-shadow-[0_0px_50px_rgba(82,63,105,15%)]">
                               <div className="py-[4px] px-[8px]">
-                                <input className="admin-input w-[100%] h-[44px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#ced4da] rounded-[.25rem] py-[0.375rem] px-[0.75rem]" />
+                                <input
+                                // kam
+                                  onChange={() => changeHandler(event,productCategories)}
+                                  className="admin-input w-[100%] h-[44px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#ced4da] rounded-[.25rem] py-[0.375rem] px-[0.75rem]"
+                                />
                               </div>
                               <ul>
-                                {productCategories.map((value) => {
+                                {productCategoriesForShow.map((value, index) => {
                                   return (
                                     <li
+                                    key={index * 4}
                                       onClick={() => setCategory(value)}
-                                      key={value + 1}
                                       className={`${
                                         value == selectedCategory
                                           ? styles.active_option
                                           : ""
-                                      } block text-[#212529] text-[1rem] py-[0.25rem] px-[1rem] hover:bg-[#c53a24] hover:text-[#fff] taPoint3`}
+                                      } capitalize block text-[#212529] text-[1rem] py-[0.25rem] px-[1rem] hover:bg-[#c53a24] hover:text-[#fff] taPoint3`}
                                     >
                                       {value}
                                     </li>
@@ -708,17 +747,19 @@ function AddNewProduct() {
                           >
                             <div className="w-[100%] mt-[0px] py-[10px] bg-[#fff] z-[2] border-[1px] border-[#00000026] drop-shadow-[0_0px_50px_rgba(82,63,105,15%)]">
                               <div className="py-[4px] px-[8px]">
-                                <input className="admin-input w-[100%] h-[44px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#ced4da] rounded-[.25rem] py-[0.375rem] px-[0.75rem] cursor-pointer" />
+                                <input
+                                // onChange={() => changeHandler(event,productVariations)}
+                                className="admin-input w-[100%] h-[44px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#ced4da] rounded-[.25rem] py-[0.375rem] px-[0.75rem] cursor-pointer" />
                               </div>
                               <ul className="max-h-[160px] overflow-auto">
                                 {productVariations.colors.map(
                                   (value, index) => {
                                     return (
                                       <li
+                                      key={value.name + 1}
                                         onClick={() =>
                                           settingSelectedColor(value, index)
                                         }
-                                        key={value.name + 1}
                                         className={`
                                               block relative text-[#212529] fwr text-[1rem] py-[0.15rem] px-[1rem] hover:bg-[#c53a24] hover:text-[#fff] overflow-hidden overflow-ellipsis whitespace-nowrap taPoint3 pl-[40px] before:w-[17px] before:h-[17px] ${value.code} before:border-[1px] before:border-[#dee2e6] before:rounded-[.25rem] before:absolute before:left-[15px] before:top-[5px]`}
                                       >
@@ -777,10 +818,10 @@ function AddNewProduct() {
                                 {productVariations.colors.map((value, inde) => {
                                   return (
                                     <li
+                                    key={value.name + 1}
                                       onClick={() =>
                                         settingSelectedSheilaColor(value, inde)
                                       }
-                                      key={value.name + 1}
                                       className={`
                                               block relative text-[#212529] fwr text-[1rem] py-[0.15rem] px-[1rem] hover:bg-[#c53a24] hover:text-[#fff] overflow-hidden overflow-ellipsis whitespace-nowrap taPoint3 pl-[40px] before:w-[17px] before:h-[17px] ${value.code} before:border-[1px] before:border-[#dee2e6] before:rounded-[.25rem] before:absolute before:left-[15px] before:top-[5px]`}
                                     >
@@ -853,13 +894,13 @@ function AddNewProduct() {
                                   (value, index) => {
                                     return (
                                       <li
+                                      key={value + 1}
                                         onClick={() =>
                                           settingSelectedSheilaLength(
                                             value,
                                             index
                                           )
                                         }
-                                        key={value + 1}
                                         className={`
                                               block relative text-[#212529] fwr text-[1rem] py-[0.15rem] px-[1rem] hover:bg-[#c53a24] hover:text-[#fff] overflow-hidden overflow-ellipsis whitespace-nowrap taPoint3`}
                                       >
@@ -912,7 +953,7 @@ function AddNewProduct() {
                                 <>
                                   {sizeTitle.map((value) => {
                                     return (
-                                      <span key={value + 1}>{value}, </span>
+                                      <span key={value *2}>{value}, </span>
                                     );
                                   })}
                                 </>
@@ -931,10 +972,10 @@ function AddNewProduct() {
                                 {productVariations.size.map((value, index) => {
                                   return (
                                     <li
+                                    key={value.name + 1}
                                       onClick={() =>
                                         settingSelectedSize(value, index)
                                       }
-                                      key={value.name + 1}
                                       className={`
                                               block relative text-[#212529] fwr text-[1rem] py-[0.15rem] px-[1rem] hover:bg-[#c53a24] hover:text-[#fff] overflow-hidden overflow-ellipsis whitespace-nowrap taPoint3`}
                                     >
@@ -1032,7 +1073,7 @@ function AddNewProduct() {
                   {productDescription.map((value, index) => {
                     return (
                       <div
-                        key={value + 1}
+                        key={value * 3}
                         className="fwr flex mb-[1rem] flex-col      lg:flex-row"
                       >
                         <p className="w-[100%]     lg:w-[37.5%] text-[#1b1b28] text-[13px] pl-0     lg:pl-[5px] capitalize pr-0     lg:pr-[5%]">
@@ -1044,7 +1085,7 @@ function AddNewProduct() {
                           <div
                             className="admin-input relative w-[100%] h-[44px] leading-[30px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#e2e5ec] rounded-[.25rem] py-[0.375rem] px-[0.75rem] cursor-pointer    before:absolute before:w-[0] before:h-[0] before:border-[4px] before:border-t-[#b7b7b7] before:border-l-[transparent] before:border-r-[transparent] before:border-b-[transparent] before:top-[18px] before:right-[10px]"
                             id={"optionMainDiv" + index}
-                          >
+                          > 
                             <div
                               className="text-[#b7b7b7] text-[15px] tracking-0 uppercase h-[40px] overflow-hidden block"
                               onClick={() =>
@@ -1089,14 +1130,17 @@ function AddNewProduct() {
                             >
                               <div className="w-[100%] mt-[0px] py-[10px] bg-[#fff] z-[2] border-[1px] border-[#00000026] drop-shadow-[0_0px_50px_rgba(82,63,105,15%)]">
                                 <div className="py-[4px] px-[8px]">
-                                  <input className="admin-input w-[100%] h-[44px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#ced4da] rounded-[.25rem] py-[0.375rem] px-[0.75rem]" />
+                                  {/* kam */}
+                                  <input
+                                    //  onChange={() => changeHandler(event)}
+                                      className="admin-input w-[100%] h-[44px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#ced4da] rounded-[.25rem] py-[0.375rem] px-[0.75rem]" />
                                 </div>
                                 <ul>
                                   {value.options.map((valu) => {
                                     return (
                                       <li
+                                      key={valu + 1}
                                         onClick={() => setOption(valu, index)}
-                                        key={valu + 1}
                                         className={`
                                         
                                         ${

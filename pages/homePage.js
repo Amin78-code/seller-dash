@@ -21,6 +21,13 @@ function HomePage() {
     img: bestSellingProduct,
     type: "product"
   }
+
+
+  
+  const countries = ['Norway', 'Sweden',  'Denmark', 'New Zealand','North'];
+
+const startsWithN = countries.filter((country) => country.startsWith("No"));
+console.log(",startsWithN",startsWithN)
   return (
     <>
       <Layout>

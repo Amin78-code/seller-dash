@@ -648,7 +648,7 @@ function AddNewProduct() {
                           </div>
                           <div
                             ref={categorySelect}
-                            className="absolute w-[100%] left-0 top-[43px] dnone"
+                            className="absolute w-[100%] left-0 top-[43px] z-[1] dnone"
                           >
                             <div className="w-[100%] mt-[0px] py-[10px] bg-[#fff] z-[2] border-[1px] border-[#00000026] drop-shadow-[0_0px_50px_rgba(82,63,105,15%)]">
                               <div className="py-[4px] px-[8px]">

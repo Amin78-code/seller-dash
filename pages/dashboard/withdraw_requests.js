@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Layout from "../../components/layout/layout";
@@ -9,6 +9,7 @@ import TwoColTableWithHeading from "../../components/dashboard/two-col-table-wit
 import CardBody from "../../components/dashboard/card-body/CardBody";
 import HeadingBar from "../../components/heading-bar/HeadingBar";
 import styles from "../../components/WithdrawRequests.module.css";
+import Modal from "../../components/dashboard/modal/Modal";
 
 const productsData = {
   headings: ["#", "date", "amount", "status", "message"],
@@ -16,6 +17,11 @@ const productsData = {
 };
 
 function WithdrawRequests() {
+  const [isShowModal, setIsShowModal] = useState(false);
+
+  const toggleModal = () => {
+    setIsShowModal(!isShowModal);
+  };
   return (
     <>
       <Layout>
@@ -24,7 +30,7 @@ function WithdrawRequests() {
             <HeadingBar heading={"Money Withdraw"} />
             <div className="flex gap-x-[1.2rem] flex-col      lg:flex-row gap-y-[1rem]      lg:gap-y-[0]">
               <PendingBalance />
-              <AddNewCard />
+              <AddNewCard toggleModal={toggleModal} />
             </div>
             <div className="w-[100%] pt-[12px]">
               <TitleAndTableCard width={"w-[100%] h-[100%]"}>
@@ -40,16 +46,22 @@ function WithdrawRequests() {
           </AdminPanelLayout>
         </div>
       </Layout>
+      {/* {isShowModal && isShowModal == true ? ( */}
+        <Modal isShowModal={isShowModal} toggleModal={toggleModal} page={"withdraw"} />
+      {/* ) : (
+        ""
+      )} */}
     </>
   );
 }
 
-function AddNewCard() {
+function AddNewCard({ toggleModal }) {
   return (
-    <Link href="/dashboard/products/uploads">
-      <a>
+    <>
+      {/* <Link href="/dashboard/products/uploads"> */}
+      <a onClick={() => toggleModal()}>
         <div className="w-[283px] rounded-[.25rem] bg-[#fff] taPoint3 cursor-pointer drop-shadow-[0_0.15rem_0.25rem_rgba(0,0,0,0.075)] hover:drop-shadow-[0_0.5rem_0.4rem_rgba(0,0,0,0.15)] p-[1rem] mb-[20px]">
-        <div className="w-[60px] h-[60px] bg-[#6c757d] rounded-full mx-auto mb-[1rem] flex justify-center items-center text-[#fff] text-[40px]">
+          <div className="w-[60px] h-[60px] bg-[#6c757d] rounded-full mx-auto mb-[1rem] flex justify-center items-center text-[#fff] text-[40px]">
             <i className="las la-plus text-[#fff]"></i>
           </div>
           <p className="fwr text-[1.125rem] text-[#c53a19] capitalize text-center">
@@ -57,7 +69,8 @@ function AddNewCard() {
           </p>
         </div>
       </a>
-    </Link>
+      {/* </Link> */}
+    </>
   );
 }
 

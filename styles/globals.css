@@ -1,6 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+/* body {
+  direction: rtl;
+} */
 @font-face {
   font-family: "Work";
   src: url("../assets/fonts/work-sans/WorkSans-Regular.ttf");
@@ -295,13 +298,10 @@
   position: relative;
 }
 .admin-input:before {
-  /* position: absolute; */
   content: "";
-  /* width: 0px;
-  height: 0px;
-  border-top: 5px solid #b7b7b7;
-  border-left: 5px solid transparent;
-  border-right: 5px solid transparent; */
+}
+.light-brown-btn:hover {
+  background: #e62e04;
 }
 /* common end */
 

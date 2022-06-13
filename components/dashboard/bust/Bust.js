@@ -9,11 +9,11 @@ function Bust({ data,isDisableAllAlterations, openAltration }) {
   const [selectedBust, setSelectedBust] = useState([]);
   const [bustTitle, setBustTitle] = useState("nothing selected");
 
-  // const openAnyAlterationSelect = (productionVaraitionName) => {
-  //   if (productionVaraitionName == "bustSelect") {
-  //     bustSelect.current.classList.toggle("dblock");
-  //   }
-  // };
+  const openAnyAlterationSelect = (productionVaraitionName) => {
+    if (productionVaraitionName == "bustSelect") {
+      bustSelect.current.classList.toggle("dblock");
+    }
+  };
 
   const settingSelectedBust = (selected) => {
     let allSelectedBust = selectedBust;
@@ -73,12 +73,14 @@ function Bust({ data,isDisableAllAlterations, openAltration }) {
           <div
             className={`
             
-            ${ isDisableAllAlterations == true ? styles.disable_div :
+            $ { isDisableAllAlterations == true ? styles.disable_div :
               isDisableBust ? styles.disable_div : ""}
+
              admin-input relative w-[100%] h-[44px] leading-[30px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#e2e5ec] rounded-[.25rem] py-[0.375rem] px-[0.75rem]  cursor-pointer       before:absolute before:w-[0] before:h-[0] before:border-[4px] before:border-t-[#b7b7b7] before:border-l-[transparent] before:border-r-[transparent] before:border-b-[transparent] before:top-[18px] before:right-[10px]`}
           >
             <span
-              onClick={() => openAltration("bust")}
+              // onClick={() => openAltration("bust")}
+              onClick={() => openAnyAlterationSelect("bustSelect")}
               className="alteration-tabs w-[100%] text-[#b7b7b7] text-[15px] tracking-0 uppercase h-[40px] overflow-hidden block"
             >
               {bustTitle}

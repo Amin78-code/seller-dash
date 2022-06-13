@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Layout from "../../components/layout/layout";
@@ -16,6 +16,7 @@ import PrintedSleeveAbaya from "../../assets/images/products/Printed Sleeve Abay
 import AbayaSetwithSideSlet from "../../assets/images/products/Abaya Set with Side Slet.jpg";
 import WishListCard from "../../components/dashboard/wishlist-card/WishListCard";
 import BottomShadowCard from "../../components/dashboard/bottom-shadow-card/BottomShadowCard";
+import Modal from "../../components/dashboard/modal/Modal";
 
 const productsData = {
   headings: [
@@ -38,6 +39,11 @@ const productsData = {
 };
 
 function Products() {
+  const [isShowModal, setIsShowModal] = useState(false);
+
+  const toggleModal = () => {
+    setIsShowModal(!isShowModal);
+  };
   return (
     <>
       <Layout>
@@ -63,10 +69,11 @@ function Products() {
 
                 <CardBody>
                   <div className="overflow-auto">
-                  <TwoColTableWithHeading
-                    data={productsData}
-                    tableType={true}
-                  />
+                    <TwoColTableWithHeading
+                      data={productsData}
+                      tableType={true}
+                      toggleModal={toggleModal}
+                    />
                   </div>
                 </CardBody>
               </TitleAndTableCard>
@@ -74,6 +81,11 @@ function Products() {
           </AdminPanelLayout>
         </div>
       </Layout>
+      <Modal
+        isShowModal={isShowModal}
+        toggleModal={toggleModal}
+        page={"products"}
+      />
     </>
   );
 }
