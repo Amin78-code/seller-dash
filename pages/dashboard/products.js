@@ -49,12 +49,25 @@ function Products() {
             </div>
             <div className="w-[100%] pt-[12px]">
               <TitleAndTableCard width={"w-[100%] h-[100%]"}>
-                <TableHeader>Products</TableHeader>
+                <TableHeader>
+                  <div className="w-[100%] flex justify-between items-center pr-[12px]">
+                    All Products
+                    <input
+                      type="text"
+                      className="admin-input w-[230px] h-[44px] fwl text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#ced4da] rounded-[.25rem] py-[0.375rem] px-[0.75rem]"
+                      placeholder="Search Product"
+                      id="search_product"
+                    />
+                  </div>
+                </TableHeader>
+
                 <CardBody>
+                  <div className="overflow-auto">
                   <TwoColTableWithHeading
                     data={productsData}
                     tableType={true}
                   />
+                  </div>
                 </CardBody>
               </TitleAndTableCard>
             </div>
@@ -68,14 +81,16 @@ function Products() {
 function AddNewCard() {
   return (
     <Link href="/dashboard/products/uploads">
-      <div className="w-[196px] rounded-[.25rem] bg-[#fff] taPoint3 cursor-pointer drop-shadow-[0_0.15rem_0.25rem_rgba(0,0,0,0.075)] hover:drop-shadow-[0_0.5rem_0.4rem_rgba(0,0,0,0.15)] p-[1rem] mb-[20px]">
-        <div className="w-[60px] h-[60px] bg-[#6c757d] rounded-full mx-auto mb-[1rem] flex justify-center items-center text-[#fff] text-[50px]">
-          +
+      <a>
+        <div className="w-[194px] rounded-[.25rem] bg-[#fff] taPoint3 cursor-pointer drop-shadow-[0_0.15rem_0.25rem_rgba(0,0,0,0.075)] hover:drop-shadow-[0_0.5rem_0.4rem_rgba(0,0,0,0.15)] p-[1rem] mb-[20px]">
+          <div className="w-[60px] h-[60px] bg-[#6c757d] rounded-full mx-auto mb-[1rem] flex justify-center items-center text-[#fff] text-[40px]">
+            <i class="las la-plus text-[#fff]"></i>
+          </div>
+          <p className="fwr text-[1.125rem] text-[#c53a19] capitalize">
+            add new product
+          </p>
         </div>
-        <p className="fwr text-[1.125rem] text-[#c53a19] capitalize">
-          add new product
-        </p>
-      </div>
+      </a>
     </Link>
   );
 }

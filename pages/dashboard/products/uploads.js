@@ -5,11 +5,8 @@ import Layout from "../../../components/layout/layout";
 import AdminPanelLayout from "../../../components/dashboard/admin-panel-layout/AdminPanelLayout";
 import TitleAndTableCard from "../../../components/dashboard/title-and-table-card/TitleAndTableCard";
 import TableHeader from "../../../components/dashboard/table-header/TableHeader";
-import TwoColTableWithHeading from "../../../components/dashboard/two-col-table-with-heading/TwoColTableWithHeading";
 import CardBody from "../../../components/dashboard/card-body/CardBody";
-import TwoColTable from "../../../components/dashboard/two-col-table/TwoColTable";
 import HeadingBar from "../../../components/heading-bar/HeadingBar";
-import verified from "../../../assets/images/icons/verified.png";
 import styles from "../../../components/uploads.module.css";
 import Length from "../../../components/dashboard/length/Length";
 import Bust from "../../../components/dashboard/bust/Bust";
@@ -224,11 +221,12 @@ function AddNewProduct() {
     categorySelect.current.classList.toggle("dblock");
     document
       .getElementById("categorySelect")
-      .classList.toggle("border-[#c53a24]");
+      .classList.toggle(styles.red_border);
   };
 
   const setCategory = (selectedOption) => {
     setSelectedCategory(selectedOption);
+    openCategorySelect();
   };
 
   const openSelect = (dropdownName, index) => {
@@ -247,129 +245,120 @@ function AddNewProduct() {
 
     if ("optionMainDiv" + index == "optionMainDiv0") {
       document
-      .getElementById("optionMainDiv1")
-      .classList.remove("border-[#c53a24]");
+        .getElementById("optionMainDiv1")
+        .classList.remove("border-[#c53a24]");
       document
-      .getElementById("optionMainDiv2")
-      .classList.remove("border-[#c53a24]");
+        .getElementById("optionMainDiv2")
+        .classList.remove("border-[#c53a24]");
       document
-      .getElementById("optionMainDiv3")
-      .classList.remove("border-[#c53a24]");
+        .getElementById("optionMainDiv3")
+        .classList.remove("border-[#c53a24]");
       document
-      .getElementById("optionMainDiv4")
-      .classList.remove("border-[#c53a24]");
+        .getElementById("optionMainDiv4")
+        .classList.remove("border-[#c53a24]");
       document
-      .getElementById("optionMainDiv5")
-      .classList.remove("border-[#c53a24]");
-
+        .getElementById("optionMainDiv5")
+        .classList.remove("border-[#c53a24]");
 
       document
         .getElementById("optionMainDiv0")
         .classList.add("border-[#c53a24]");
     } else if ("optionMainDiv" + index == "optionMainDiv1") {
       document
-      .getElementById("optionMainDiv0")
-      .classList.remove("border-[#c53a24]");
+        .getElementById("optionMainDiv0")
+        .classList.remove("border-[#c53a24]");
       document
-      .getElementById("optionMainDiv2")
-      .classList.remove("border-[#c53a24]");
+        .getElementById("optionMainDiv2")
+        .classList.remove("border-[#c53a24]");
       document
-      .getElementById("optionMainDiv3")
-      .classList.remove("border-[#c53a24]");
+        .getElementById("optionMainDiv3")
+        .classList.remove("border-[#c53a24]");
       document
-      .getElementById("optionMainDiv4")
-      .classList.remove("border-[#c53a24]");
+        .getElementById("optionMainDiv4")
+        .classList.remove("border-[#c53a24]");
       document
-      .getElementById("optionMainDiv5")
-      .classList.remove("border-[#c53a24]");
-
+        .getElementById("optionMainDiv5")
+        .classList.remove("border-[#c53a24]");
 
       document
         .getElementById("optionMainDiv1")
         .classList.add("border-[#c53a24]");
     } else if ("optionMainDiv" + index == "optionMainDiv2") {
       document
-      .getElementById("optionMainDiv1")
-      .classList.remove("border-[#c53a24]");
+        .getElementById("optionMainDiv1")
+        .classList.remove("border-[#c53a24]");
       document
-      .getElementById("optionMainDiv0")
-      .classList.remove("border-[#c53a24]");
+        .getElementById("optionMainDiv0")
+        .classList.remove("border-[#c53a24]");
       document
-      .getElementById("optionMainDiv3")
-      .classList.remove("border-[#c53a24]");
+        .getElementById("optionMainDiv3")
+        .classList.remove("border-[#c53a24]");
       document
-      .getElementById("optionMainDiv4")
-      .classList.remove("border-[#c53a24]");
+        .getElementById("optionMainDiv4")
+        .classList.remove("border-[#c53a24]");
       document
-      .getElementById("optionMainDiv5")
-      .classList.remove("border-[#c53a24]");
-
-
+        .getElementById("optionMainDiv5")
+        .classList.remove("border-[#c53a24]");
 
       document
         .getElementById("optionMainDiv2")
         .classList.add("border-[#c53a24]");
     } else if ("optionMainDiv" + index == "optionMainDiv3") {
       document
-      .getElementById("optionMainDiv1")
-      .classList.remove("border-[#c53a24]");
+        .getElementById("optionMainDiv1")
+        .classList.remove("border-[#c53a24]");
       document
-      .getElementById("optionMainDiv2")
-      .classList.remove("border-[#c53a24]");
+        .getElementById("optionMainDiv2")
+        .classList.remove("border-[#c53a24]");
       document
-      .getElementById("optionMainDiv0")
-      .classList.remove("border-[#c53a24]");
+        .getElementById("optionMainDiv0")
+        .classList.remove("border-[#c53a24]");
       document
-      .getElementById("optionMainDiv4")
-      .classList.remove("border-[#c53a24]");
+        .getElementById("optionMainDiv4")
+        .classList.remove("border-[#c53a24]");
       document
-      .getElementById("optionMainDiv5")
-      .classList.remove("border-[#c53a24]");
-
+        .getElementById("optionMainDiv5")
+        .classList.remove("border-[#c53a24]");
 
       document
         .getElementById("optionMainDiv3")
         .classList.add("border-[#c53a24]");
     } else if ("optionMainDiv" + index == "optionMainDiv4") {
       document
-      .getElementById("optionMainDiv1")
-      .classList.remove("border-[#c53a24]");
+        .getElementById("optionMainDiv1")
+        .classList.remove("border-[#c53a24]");
       document
-      .getElementById("optionMainDiv2")
-      .classList.remove("border-[#c53a24]");
+        .getElementById("optionMainDiv2")
+        .classList.remove("border-[#c53a24]");
       document
-      .getElementById("optionMainDiv3")
-      .classList.remove("border-[#c53a24]");
+        .getElementById("optionMainDiv3")
+        .classList.remove("border-[#c53a24]");
       document
-      .getElementById("optionMainDiv0")
-      .classList.remove("border-[#c53a24]");
+        .getElementById("optionMainDiv0")
+        .classList.remove("border-[#c53a24]");
       document
-      .getElementById("optionMainDiv5")
-      .classList.remove("border-[#c53a24]");
-
-
+        .getElementById("optionMainDiv5")
+        .classList.remove("border-[#c53a24]");
 
       document
         .getElementById("optionMainDiv4")
         .classList.add("border-[#c53a24]");
     } else if ("optionMainDiv" + index == "optionMainDiv5") {
       document
-      .getElementById("optionMainDiv1")
-      .classList.remove("border-[#c53a24]");
+        .getElementById("optionMainDiv1")
+        .classList.remove("border-[#c53a24]");
       document
-      .getElementById("optionMainDiv2")
-      .classList.remove("border-[#c53a24]");
+        .getElementById("optionMainDiv2")
+        .classList.remove("border-[#c53a24]");
       document
-      .getElementById("optionMainDiv3")
-      .classList.remove("border-[#c53a24]");
+        .getElementById("optionMainDiv3")
+        .classList.remove("border-[#c53a24]");
       document
-      .getElementById("optionMainDiv4")
-      .classList.remove("border-[#c53a24]");
+        .getElementById("optionMainDiv4")
+        .classList.remove("border-[#c53a24]");
       document
-      .getElementById("optionMainDiv0")
-      .classList.remove("border-[#c53a24]");
-
-
+        .getElementById("optionMainDiv0")
+        .classList.remove("border-[#c53a24]");
 
       document
         .getElementById("optionMainDiv5")
@@ -393,6 +382,8 @@ function AddNewProduct() {
     } else if (optionsIndex == 5) {
       setSelectedShippingAndReturns(selectedOption);
     }
+
+    openSelect("options" + optionsIndex, optionsIndex);
   };
 
   const openProductVariationSelect = (productionVaraitionName) => {
@@ -588,15 +579,15 @@ function AddNewProduct() {
   const disableAllAlterations = (id) => {
     // console.log("e", document.getElementById(id).checked);
     if (document.getElementById(id).checked == true) {
-      setIsDisableAllAlterations(true);
-    } else {
       setIsDisableAllAlterations(false);
+    } else {
+      setIsDisableAllAlterations(true);
     }
   };
 
   const openAltration = (alterationName) => {
-   let allAlerations = document.querySelectorAll("alteration-tabs")
-  //  remaining to do
+    let allAlerations = document.querySelectorAll("alteration-tabs");
+    //  remaining to do
   };
 
   return (
@@ -605,34 +596,38 @@ function AddNewProduct() {
         <div className="w-[100%] min-h-[100vh] h-[auto]">
           <AdminPanelLayout active={"Products"}>
             <HeadingBar heading={"add your product"} />
-            <div className="w-[100%] flex gap-x-[.9%]">
-              <div className="w-[62.6%] h-[100%]">
+            <div className="w-[100%] flex gap-x-[.9%] flex-col      lg:flex-row">
+              <div className="w-[100%]      lg:w-[62.6%] h-[100%]">
                 {/* Product Information */}
-                <TitleAndTableCard width={"w-[100% mb-[20px]"} zindex={" z-[2] relative "}>
+                <TitleAndTableCard
+                  width={"w-[100% mb-[20px]"}
+                  zindex={" z-[2] relative "}
+                >
                   <TableHeader>Product Information</TableHeader>
                   <CardBody>
-                    <div className="fwr flex mb-[1rem]">
-                      <p className="w-[24.4%] text-[#1b1b28] text-[13px] px-[5px] capitalize">
+                    <div className="fwr flex mb-[1rem] flex-col      lg:flex-row">
+                      <p className="w-[100%]     lg:w-[24.4%] text-[#1b1b28] text-[13px] px-[5px] capitalize">
                         <span className="text-[#ff0032]">*</span>product name
                       </p>
-                      <div className="w-[68.75%] px-[15px]">
+                      <div className="w-[100%]     lg:w-[68.75%] px-[5px]     lg:px-[15px]">
                         <input
                           className="admin-input w-[100%] h-[44px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#ced4da] rounded-[.25rem] py-[0.375rem] px-[0.75rem]"
                           placeholder="Product Name"
                         />
                       </div>
                     </div>
-                    <div className="fwr flex mb-[1rem]">
-                      <p className="w-[24.4%] text-[#1b1b28] text-[13px] px-[5px] capitalize">
+                    <div className="fwr flex mb-[1rem] flex-col      lg:flex-row">
+                      <p className="w-[100%]     lg:w-[24.4%] text-[#1b1b28] text-[13px] px-[5px] capitalize">
                         <span className="text-[#ff0032]">*</span>category
                       </p>
-                      <div className="w-[68.75%] px-[15px]">
+                      <div className="w-[100%]     lg:w-[68.75%] px-[5px]     lg:px-[15px]">
                         <div
-                          onClick={() => openCategorySelect()}
-                          className="admin-input relative w-[100%] h-[44px] leading-[30px] text-[#b7b7b7] text-[1rem] bg-[#fff] border-[1px]  rounded-[.25rem] py-[0.375rem] px-[0.75rem] border-[#ced4da]"
+                          className="admin-input relative w-[100%] h-[44px] leading-[30px] text-[#b7b7b7] text-[1rem] bg-[#fff] border-[1px]  rounded-[.25rem] py-[0.375rem] px-[0.75rem] border-[#ced4da] cursor-pointer    before:absolute before:w-[0] before:h-[0] before:border-[4px] before:border-t-[#b7b7b7] before:border-l-[transparent] before:border-r-[transparent] before:border-b-[transparent] before:top-[18px] before:right-[10px]"
                           id="categorySelect"
                         >
-                          {selectedCategory ? selectedCategory : ""}
+                          <div onClick={() => openCategorySelect()}>
+                            {selectedCategory ? selectedCategory : ""}
+                          </div>
                           <div
                             ref={categorySelect}
                             className="absolute w-[100%] left-0 top-[43px] dnone"
@@ -664,11 +659,11 @@ function AddNewProduct() {
                       </div>
                     </div>
 
-                    <div className="fwr flex mb-[1rem]">
-                      <p className="w-[24.4%] text-[#1b1b28] text-[13px] px-[5px] capitalize">
+                    <div className="fwr flex mb-[1rem] flex-col      lg:flex-row">
+                      <p className="w-[100%]     lg:w-[24.4%] text-[#1b1b28] text-[13px] px-[5px] capitalize">
                         SKU Code
                       </p>
-                      <div className="w-[68.75%] px-[15px]">
+                      <div className="w-[100%]     lg:w-[68.75%] px-[5px]     lg:px-[15px]">
                         <input
                           className="admin-input w-[100%] h-[44px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#ced4da] rounded-[.25rem] py-[0.375rem] px-[0.75rem]"
                           placeholder="SKU Code"
@@ -685,17 +680,20 @@ function AddNewProduct() {
                   </CardBody>
                 </TitleAndTableCard>
                 {/* Product Variation */}
-                <TitleAndTableCard width={"w-[100% mb-[20px]"} zindex={" z-[2] relative "}>
+                <TitleAndTableCard
+                  width={"w-[100% mb-[20px]"}
+                  zindex={" z-[2] relative "}
+                >
                   <TableHeader>Product Variation</TableHeader>
                   <CardBody>
                     {/* colors */}
-                    <div className="fwl flex mb-[1rem]">
+                    <div className="fwl flex mb-[1rem] flex-col      lg:flex-row">
                       <input
-                        className="w-[25%] h-[44px] leading-[34px] capitalize bg-[#e9ecef] fwl text-[#495057] text-[1rem] rounded-[.25rem] py-[.375rem] px-[.75rem] not-allowed"
+                        className="w-[100%]     lg:w-[25%] h-[44px] leading-[34px] capitalize bg-[#e9ecef] fwl text-[#495057] text-[1rem] rounded-[.25rem] py-[.375rem] px-[.75rem] not-allowed"
                         value="color"
                       />
-                      <div className="fwl w-[62.5%] pl-[15px] pr-[5px]">
-                        <div className="admin-input relative w-[100%] h-[44px] leading-[30px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#e2e5ec] rounded-[.25rem] py-[0.375rem] px-[0.75rem]">
+                      <div className="fwl w-[100%]     lg:w-[62.5%] pl-0     lg:pl-[15px] pr-0    lg:pr-[5px]">
+                        <div className="admin-input relative w-[100%] h-[44px] leading-[30px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#e2e5ec] rounded-[.25rem] py-[0.375rem] px-[0.75rem] cursor-pointer       before:absolute before:w-[0] before:h-[0] before:border-[4px] before:border-t-[#b7b7b7] before:border-l-[transparent] before:border-r-[transparent] before:border-b-[transparent] before:top-[18px] before:right-[10px]">
                           <span
                             onClick={() =>
                               openProductVariationSelect("colorSelect")
@@ -710,7 +708,7 @@ function AddNewProduct() {
                           >
                             <div className="w-[100%] mt-[0px] py-[10px] bg-[#fff] z-[2] border-[1px] border-[#00000026] drop-shadow-[0_0px_50px_rgba(82,63,105,15%)]">
                               <div className="py-[4px] px-[8px]">
-                                <input className="admin-input w-[100%] h-[44px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#ced4da] rounded-[.25rem] py-[0.375rem] px-[0.75rem]" />
+                                <input className="admin-input w-[100%] h-[44px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#ced4da] rounded-[.25rem] py-[0.375rem] px-[0.75rem] cursor-pointer" />
                               </div>
                               <ul className="max-h-[160px] overflow-auto">
                                 {productVariations.colors.map(
@@ -730,7 +728,7 @@ function AddNewProduct() {
                                             className="dnone"
                                             id={"colorOptions" + index}
                                           >
-                                            tick
+                                            <i class="las la-check"></i>
                                           </div>
                                         </div>
                                       </li>
@@ -742,22 +740,22 @@ function AddNewProduct() {
                           </div>
                         </div>
                       </div>
-                      <p className="fwr w-[12.5%] text-[10px] text-[#6C767D] leading-[2] tracking-[0.5px] pr-[10px] pl-[20px]">
+                      <p className="fwr w-[100%]     lg:w-[12.5%] text-[10px] text-[#6C767D] leading-[2] tracking-[0.5px] pr-[10px] pl-0      lg:pl-[20px]">
                         Multiple Select
                       </p>
                     </div>
 
                     {/* sheila colors */}
-                    <div className="fwl flex mb-[1rem]">
+                    <div className="fwl flex mb-[1rem] flex-col      lg:flex-row">
                       <input
-                        className="w-[25%] h-[44px] leading-[34px] capitalize bg-[#e9ecef] fwl text-[#495057] text-[1rem] rounded-[.25rem] py-[.375rem] px-[.75rem] not-allowed"
+                        className="w-[100%]     lg:w-[25%] h-[44px] leading-[34px] capitalize bg-[#e9ecef] fwl text-[#495057] text-[1rem] rounded-[.25rem] py-[.375rem] px-[.75rem] not-allowed"
                         value="Sheila Colors"
                       />
-                      <div className="fwl w-[62.5%] pl-[15px] pr-[5px]">
+                      <div className="fwl w-[100%]     lg:w-[62.5%] pl-0     lg:pl-[15px] pr-0    lg:pr-[5px]">
                         <div
                           className={`${
                             isDisableSheila ? styles.disable_div : ""
-                          } admin-input relative w-[100%] h-[44px] leading-[30px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#e2e5ec] rounded-[.25rem] py-[0.375rem] px-[0.75rem] before:w-[100%] before:h-[100%] before:left-0 before:top-0 before:bg-[#ffffffa6]`}
+                          } admin-input relative w-[100%] h-[44px] leading-[30px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#e2e5ec] rounded-[.25rem] py-[0.375rem] px-[0.75rem] cursor-pointer       before:absolute before:w-[0] before:h-[0] before:border-[4px] before:border-t-[#b7b7b7] before:border-l-[transparent] before:border-r-[transparent] before:border-b-[transparent] before:top-[18px] before:right-[10px]`}
                         >
                           <span
                             onClick={() =>
@@ -792,7 +790,7 @@ function AddNewProduct() {
                                           className="dnone"
                                           id={"sheilaColorOptions" + inde}
                                         >
-                                          tick
+                                          <i class="las la-check"></i>
                                         </div>
                                       </div>
                                     </li>
@@ -803,7 +801,7 @@ function AddNewProduct() {
                           </div>
                         </div>
                       </div>
-                      <p className="fwr w-[12.5%] text-[10px] text-[#6C767D] leading-[2] tracking-[0.5px] pr-[10px] pl-[20px]">
+                      <p className="fwr w-[100%]     lg:w-[12.5%] text-[10px] text-[#6C767D] leading-[2] tracking-[0.5px] pr-[10px] pl-0      lg:pl-[20px] mt-[10px]      lg:mt-[0]">
                         <label
                           htmlFor="toggleB"
                           className="flex items-center cursor-pointer"
@@ -815,7 +813,7 @@ function AddNewProduct() {
                               className="sr-only"
                               onChange={() => disableSheila("toggleB")}
                             />
-                            <div className="block bg-[#e8ebf1] w-[40px] h-[22px] rounded-full"></div>
+                            <div className="block bg-[#e8ebf1] w-[40px] h-[23px] rounded-full"></div>
                             <div className="dot absolute left-[2px] top-[2.5px] bg-white w-[17px] h-[17px] rounded-full transition"></div>
                           </div>
                         </label>
@@ -823,16 +821,16 @@ function AddNewProduct() {
                     </div>
 
                     {/* sheila length */}
-                    <div className="fwl flex mb-[1rem]">
+                    <div className="fwl flex mb-[1rem] flex-col      lg:flex-row">
                       <input
-                        className="w-[25%] h-[44px] leading-[34px] capitalize bg-[#e9ecef] fwl text-[#495057] text-[1rem] rounded-[.25rem] py-[.375rem] px-[.75rem] not-allowed"
+                        className="w-[100%]     lg:w-[25%] h-[44px] leading-[34px] capitalize bg-[#e9ecef] fwl text-[#495057] text-[1rem] rounded-[.25rem] py-[.375rem] px-[.75rem] not-allowed"
                         value="Sheila Length"
                       />
-                      <div className="fwl w-[62.5%] pl-[15px] pr-[5px]">
+                      <div className="fwl w-[100%]     lg:w-[62.5%] pl-0     lg:pl-[15px] pr-0    lg:pr-[5px]">
                         <div
                           className={`${
                             isDisableSheila ? styles.disable_div : ""
-                          } admin-input relative w-[100%] h-[44px] leading-[30px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#e2e5ec] rounded-[.25rem] py-[0.375rem] px-[0.75rem] before:w-[100%] before:h-[100%] before:left-0 before:top-0 before:bg-[#ffffffa6]`}
+                          } admin-input relative w-[100%] h-[44px] leading-[30px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#e2e5ec] rounded-[.25rem] py-[0.375rem] px-[0.75rem] cursor-pointer       before:absolute before:w-[0] before:h-[0] before:border-[4px] before:border-t-[#b7b7b7] before:border-l-[transparent] before:border-r-[transparent] before:border-b-[transparent] before:top-[18px] before:right-[10px]`}
                         >
                           <span
                             onClick={() =>
@@ -871,7 +869,7 @@ function AddNewProduct() {
                                             className="dnone"
                                             id={"sheilaLengthOptions" + index}
                                           >
-                                            tick
+                                            <i class="las la-check"></i>
                                           </div>
                                         </div>
                                       </li>
@@ -883,19 +881,19 @@ function AddNewProduct() {
                           </div>
                         </div>
                       </div>
-                      <p className="fwr w-[12.5%] text-[10px] text-[#6C767D] leading-[2] tracking-[0.5px] pr-[10px] pl-[20px]">
+                      <p className="fwr w-[100%]     lg:w-[12.5%] text-[10px] text-[#6C767D] leading-[2] tracking-[0.5px] pr-[10px] pl-0      lg:pl-[20px]">
                         Multiple Select
                       </p>
                     </div>
 
                     {/* size */}
-                    <div className="fwl flex mb-[1rem]">
+                    <div className="fwl flex mb-[1rem] flex-col      lg:flex-row">
                       <input
-                        className="w-[25%] h-[44px] leading-[34px] capitalize bg-[#e9ecef] fwl text-[#495057] text-[1rem] rounded-[.25rem] py-[.375rem] px-[.75rem] not-allowed"
+                        className="w-[100%]     lg:w-[25%] h-[44px] leading-[34px] capitalize bg-[#e9ecef] fwl text-[#495057] text-[1rem] rounded-[.25rem] py-[.375rem] px-[.75rem] not-allowed"
                         value="Size"
                       />
-                      <div className="fwl w-[62.5%] pl-[15px] pr-[5px]">
-                        <div className="admin-input relative w-[100%] h-[44px] leading-[30px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#e2e5ec] rounded-[.25rem] py-[0.375rem] px-[0.75rem]">
+                      <div className="fwl w-[100%]     lg:w-[62.5%] pl-0     lg:pl-[15px] pr-0    lg:pr-[5px]">
+                        <div className="admin-input relative w-[100%] h-[44px] leading-[30px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#e2e5ec] rounded-[.25rem] py-[0.375rem] px-[0.75rem]  cursor-pointer       before:absolute before:w-[0] before:h-[0] before:border-[4px] before:border-t-[#b7b7b7] before:border-l-[transparent] before:border-r-[transparent] before:border-b-[transparent] before:top-[18px] before:right-[10px]">
                           <span
                             onClick={() =>
                               openProductVariationSelect("sizeSelect")
@@ -946,7 +944,7 @@ function AddNewProduct() {
                                           className="dnone"
                                           id={"sizeOptions" + index}
                                         >
-                                          tick
+                                          <i class="las la-check"></i>
                                         </div>
                                       </div>
                                     </li>
@@ -957,7 +955,7 @@ function AddNewProduct() {
                           </div>
                         </div>
                       </div>
-                      <p className="fwr w-[12.5%] text-[10px] text-[#6C767D] leading-[2] tracking-[0.5px] pr-[10px] pl-[20px]">
+                      <p className="fwr w-[100%]     lg:w-[12.5%] text-[10px] text-[#6C767D] leading-[2] tracking-[0.5px] pr-[10px] pl-0      lg:pl-[20px]">
                         Multiple Select
                       </p>
                     </div>
@@ -998,7 +996,7 @@ function AddNewProduct() {
                               disableAllAlterations("toggleAllAlterations")
                             }
                           />
-                          <div className="block bg-[#e8ebf1] w-[40px] h-[22px] rounded-full"></div>
+                          <div className="block bg-[#e8ebf1] w-[40px] h-[23px] rounded-full"></div>
                           <div className="dot absolute left-[2px] top-[2.5px] bg-white w-[17px] h-[17px] rounded-full transition"></div>
                         </div>
                       </label>
@@ -1006,46 +1004,53 @@ function AddNewProduct() {
                     <Length
                       data={alteration}
                       isDisableAllAlterations={isDisableAllAlterations}
-                      openAltration = {openAltration}
+                      openAltration={openAltration}
                     />
                     <Bust
                       data={alteration}
                       isDisableAllAlterations={isDisableAllAlterations}
-                      openAltration = {openAltration}
+                      openAltration={openAltration}
                     />
                     <Sleeves
                       data={alteration}
                       isDisableAllAlterations={isDisableAllAlterations}
-                      openAltration = {openAltration}
+                      openAltration={openAltration}
                     />
                   </CardBody>
                 </TitleAndTableCard>
+                {/* <br />
                 <br />
                 <br />
                 <br />
                 <br />
-                <br />
-                <br />
+                <br /> */}
               </div>
               {/* Product Description */}
-              <TitleAndTableCard width={"w-[37.5%] h-[100%]"}>
+              <TitleAndTableCard width={"w-[100%]    lg:w-[37.5%] h-[100%]"}>
                 <TableHeader>Product Description</TableHeader>
                 <CardBody>
                   {productDescription.map((value, index) => {
                     return (
-                      <div key={value + 1} className="fwr flex mb-[1rem] s">
-                        <p className="w-[37.5%] text-[#1b1b28] text-[13px] pl-[5px] capitalize pr-[5%]">
+                      <div
+                        key={value + 1}
+                        className="fwr flex mb-[1rem] flex-col      lg:flex-row"
+                      >
+                        <p className="w-[100%]     lg:w-[37.5%] text-[#1b1b28] text-[13px] pl-0     lg:pl-[5px] capitalize pr-0     lg:pr-[5%]">
                           <span className="text-[#ff0032]">*</span>
                           {value.name}
                         </p>
 
-                        <div className="fwl w-[62.5%] pl-[15px] pr-[5px]">
+                        <div className="fwl w-[100%]     lg:w-[62.5%] pl-0     lg:pl-[15px] pr-0    lg:pr-[5px]">
                           <div
-                            onClick={() => openSelect("options" + index, index)}
-                            className="admin-input relative w-[100%] h-[44px] leading-[30px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#e2e5ec] rounded-[.25rem] py-[0.375rem] px-[0.75rem]"
+                            className="admin-input relative w-[100%] h-[44px] leading-[30px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#e2e5ec] rounded-[.25rem] py-[0.375rem] px-[0.75rem] cursor-pointer    before:absolute before:w-[0] before:h-[0] before:border-[4px] before:border-t-[#b7b7b7] before:border-l-[transparent] before:border-r-[transparent] before:border-b-[transparent] before:top-[18px] before:right-[10px]"
                             id={"optionMainDiv" + index}
                           >
-                            <span className="text-[#b7b7b7] text-[15px] tracking-0 uppercase h-[40px] overflow-hidden block">
+                            <div
+                              className="text-[#b7b7b7] text-[15px] tracking-0 uppercase h-[40px] overflow-hidden block"
+                              onClick={() =>
+                                openSelect("options" + index, index)
+                              }
+                            >
                               {index == 0
                                 ? selectedType
                                   ? selectedType
@@ -1076,7 +1081,7 @@ function AddNewProduct() {
                                   ? selectedShippingAndReturns
                                   : ""
                                 : ""}
-                            </span>
+                            </div>
                             <div
                               ref={typeSelect}
                               className="absolute w-[100%] left-0 top-[43px] z-[2] dnone"
@@ -1159,7 +1164,8 @@ function AddNewProduct() {
         </div>
       </Layout>
       <div id="upload_overlay" className="dnone">
-      <ChooseImageModal /></div>
+        <ChooseImageModal />
+      </div>
     </>
   );
 }

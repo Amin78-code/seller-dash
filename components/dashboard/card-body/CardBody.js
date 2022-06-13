@@ -12,7 +12,7 @@ function CardBody({ children, broad, simple, p }) {
     <>
       <div
         className={`w-[100%] ${
-          broad && broad == true ? "p-[50px]" : simple && simple == true ? "p-[25px]"  : "py-[20px] px-[25px]"
+          broad && broad == true ? "p-[54px]" : simple && simple == true ? "p-[25px]"  : "py-[20px] px-[25px]"
         } `}
       >
         {children}

@@ -71,6 +71,8 @@ function ViewPickup() {
     } else if (optionsIndex == 1) {
       setFilterByDeliver(selectedOption);
     }
+
+    openSelect("options" + optionsIndex, optionsIndex);
   };
 
   return (
@@ -87,11 +89,11 @@ function ViewPickup() {
                       <div key={value.name + 1} className="fwr w-[209px]">
                         <div className="fwl w-[100%] pr-[10px]">
                           <div
-                            onClick={() => openSelect("options" + index, index)}
+                            
                             className="admin-input relative w-[100%] h-[44px] leading-[30px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#e2e5ec] rounded-[.25rem] py-[0.375rem] px-[0.75rem]"
                             id={"optionMainDiv" + index}
                           >
-                            <span className="text-[#b7b7b7] text-[15px] tracking-0 uppercase h-[40px] overflow-hidden block">
+                            <div className="text-[#b7b7b7] text-[15px] tracking-0 uppercase h-[40px] overflow-hidden block" onClick={() => openSelect("options" + index, index)}>
                               {index == 0
                                 ? filterByPayment
                                   ? filterByPayment
@@ -102,7 +104,7 @@ function ViewPickup() {
                                   ? filterByDeliver
                                   : ""
                                 : ""}
-                            </span>
+                            </div>
                             <div
                               ref={typeSelect}
                               className="absolute w-[100%] left-0 top-[43px] z-[2] dnone"

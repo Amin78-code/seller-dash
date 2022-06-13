@@ -75,9 +75,6 @@
 .image_container img {
   object-fit: cover;
 }
-.card-sm-box .image_container img {
-  object-fit: contain;
-}
 .image_container2 > span {
   width: 100% !important;
   height: 100% !important;
@@ -122,9 +119,6 @@
 }
 .heart:hover {
   background-position: -58px -150px;
-}
-.heart-for-product-detail:hover {
-  background-position: -3px -93px;
 }
 .user:hover {
   background-position: -24px -121px;
@@ -269,6 +263,10 @@
 .taPoint3 {
   transition: all 0.3s ease;
 }
+
+.taPoint6 {
+  transition: all 0.6s ease;
+}
 .rotate45 {
   transform: rotate(45deg);
 }
@@ -281,8 +279,11 @@
 .dblock {
   display: block !important;
 }
+.dflex {
+  display: flex !important;
+}
 .slide-tab {
-  height: auto !important;
+  max-height: 700px !important;
   border-bottom: 1px solid #c53a19;
 }
 .show-colors {
@@ -290,22 +291,17 @@
   padding-bottom: 18px;
   border-bottom: 1px solid #c53a19;
 }
-.pink-btn:hover {
-  color: #fff;
-  background-color: #c83e27;
+.admin-input {
+  position: relative;
 }
-.maroon-btn:hover {
-  background-color: #e62e2d;
-}
-.light-brown-btn:hover {
-  background-color: #e62e04;
-}
-.not-allowed {
-  cursor: not-allowed;
-}
-input:checked ~ .dot {
-  transform: translateX(100%);
-  background-color: #48bb78;
+.admin-input:before {
+  /* position: absolute; */
+  content: "";
+  /* width: 0px;
+  height: 0px;
+  border-top: 5px solid #b7b7b7;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent; */
 }
 /* common end */
 
@@ -325,10 +321,10 @@ input:checked ~ .dot {
 }
 .orange_dropdown {
   width: calc(100% + 40px);
-  height: 0;
+  max-height: 0;
 }
 .show-dropdown {
-  height: auto !important;
+  max-height: 600px !important;
 }
 .visibility-visible {
   visibility: visible !important;
@@ -339,7 +335,7 @@ input:checked ~ .dot {
   display: block;
 }
 .mob_menu_black_div {
-  width: calc(100% - 70px);
+  width: calc(100% - 60px);
 }
 .mob-menu-white-div {
   width: calc(100% - 70px);
@@ -424,6 +420,13 @@ input:checked ~ .dot {
 }
 /* header end */
 /* shop css start */
+.toggle-all-filters-main-div {
+  display: flex !important;
+  animation: showSlow 0.3s forwards;
+}
+.minus-icon:before {
+  content: '-' !important;
+}
 .size-box:hover {
   background-color: #fbf1e8;
 }
@@ -466,13 +469,6 @@ input:checked ~ .dot {
 }
 .share-icon-div {
   transition: all 0.3s ease;
-}
-.share-icon-div:hover {
-  border-color: #000;
-}
-.card:hover .title {
-  color: #fff;
-  background-color: #c93e27;
 }
 .card img {
   transition: all 0.3s ease;
@@ -615,6 +611,17 @@ input:checked ~ .dot {
   .product-slider-div .slick-next:before {
     font-size: 30px !important;
   }
+  
+@keyframes showSlow {
+  0% {
+    opacity: 0;
+    max-height: 0;
+  }
+  100% {
+    opacity: 1;
+    max-height: 1000px;
+  }
+}
 }
 li.relative:hover .contact-box {
   display: block !important;
@@ -683,15 +690,6 @@ h3.steps-last:after {
   background-position: center;
 }
 /* checkout css end */
-
-/* uploads css start */
-input[type=number]::-webkit-inner-spin-button, 
-input[type=number]::-webkit-outer-spin-button { 
-  -webkit-appearance: none; 
-  margin: 0; 
-}
-/* uploads css start */
-
 /* footer start */
 li.relative:hover .contact-box {
   display: block !important;
@@ -714,6 +712,10 @@ li.relative:hover .contact-box {
   }
   .category-card {
     padding: 0 8px 0 0;
+  }
+  .category-card .img-div {
+    max-height: 213px;
+    overflow: hidden;
   }
   .feature-slider-mob .slick-dots {
     bottom: -50px;
@@ -748,6 +750,16 @@ li.relative:hover .contact-box {
     width: 100%;
     max-width: 728px;
   }
+  .heart-for-product-detail:hover {
+    background-position: -3px -93px;
+  }
+  .share-icon-div:hover {
+    border-color: #000;
+  }
+  .card:hover .title {
+    color: #fff;
+    background-color: #c93e27;
+  }
 }
 @media (min-width: 1025px) {
   .container-for-content-pages {
@@ -764,11 +776,3 @@ li.relative:hover .contact-box {
   }
 }
 /* media query end  */
-/* admin panel start */
-
-.admin-input:focus {
-  border-color: #80bdff;
-  outline: 0;
-  box-shadow: 0 0 0 0.2rem rgb(0 123 255 / 25%);
-}
-/* admin panel end */

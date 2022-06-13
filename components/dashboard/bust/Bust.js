@@ -3,7 +3,7 @@ import Image from "next/image";
 import styles from "./Bust.module.css";
 
 function Bust({ data,isDisableAllAlterations, openAltration }) {
-  const [isDisableBust, setIsDisableBust] = useState(false);
+  const [isDisableBust, setIsDisableBust] = useState(true);
 
   const bustSelect = useRef("");
   const [selectedBust, setSelectedBust] = useState([]);
@@ -54,28 +54,28 @@ function Bust({ data,isDisableAllAlterations, openAltration }) {
   };
 
   const disableBust = (id) => {
-    console.log("e", document.getElementById(id).checked);
+    // console.log("e", document.getElementById(id).checked);
     if (document.getElementById(id).checked == true) {
-      setIsDisableBust(true);
-    } else {
       setIsDisableBust(false);
+    } else {
+      setIsDisableBust(true);
     }
   };
 
   return (
     <>
-      <div className="fwl flex mb-[1rem]">
+      <div className="fwl flex mb-[1rem] flex-col      lg:flex-row">
         <input
-          className="w-[25%] h-[44px] leading-[34px] capitalize bg-[#e9ecef] fwl text-[#495057] text-[1rem] rounded-[.25rem] py-[.375rem] px-[.75rem] not-allowed"
+          className="w-[100%]     lg:w-[25%] h-[44px] leading-[34px] capitalize bg-[#e9ecef] fwl text-[#495057] text-[1rem] rounded-[.25rem] py-[.375rem] px-[.75rem] not-allowed"
           value="Bust"
         />
-        <div className="fwl w-[62.5%] pl-[15px] pr-[5px]">
+        <div className="fwl w-[100%]     lg:w-[62.5%] pl-0         lg:pl-[15px] pr-0         lg:pr-[5px]">
           <div
             className={`
             
             ${ isDisableAllAlterations == true ? styles.disable_div :
               isDisableBust ? styles.disable_div : ""}
-             admin-input relative w-[100%] h-[44px] leading-[30px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#e2e5ec] rounded-[.25rem] py-[0.375rem] px-[0.75rem] before:w-[100%] before:h-[100%] before:left-0 before:top-0 before:bg-[#ffffffa6]`}
+             admin-input relative w-[100%] h-[44px] leading-[30px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#e2e5ec] rounded-[.25rem] py-[0.375rem] px-[0.75rem]  cursor-pointer       before:absolute before:w-[0] before:h-[0] before:border-[4px] before:border-t-[#b7b7b7] before:border-l-[transparent] before:border-r-[transparent] before:border-b-[transparent] before:top-[18px] before:right-[10px]`}
           >
             <span
               onClick={() => openAltration("bust")}
@@ -103,7 +103,7 @@ function Bust({ data,isDisableAllAlterations, openAltration }) {
                         <div className="flex justify-between">
                           {value}
                           <div className="dnone" id={"bustOptions" + index}>
-                            tick
+                          <i class="las la-check"></i>
                           </div>
                         </div>
                       </li>
@@ -114,7 +114,7 @@ function Bust({ data,isDisableAllAlterations, openAltration }) {
             </div>
           </div>
         </div>
-        <p className="fwr w-[12.5%] text-[10px] text-[#6C767D] leading-[2] tracking-[0.5px] pr-[10px] pl-[20px]">
+        <p className="fwr w-[100%]     lg:w-[12.5%] text-[10px] text-[#6C767D] leading-[2] tracking-[0.5px] pr-0       lg:pr-[10px] pl-0       lg:pl-[20px] mt-[10px]       lg:mt-0">
           <label htmlFor="toggleBust" className="flex items-center cursor-pointer">
             <div className="relative">
               <input
@@ -123,7 +123,7 @@ function Bust({ data,isDisableAllAlterations, openAltration }) {
                 className="sr-only"
                 onChange={() => disableBust("toggleBust")}
               />
-              <div className="block bg-[#e8ebf1] w-[40px] h-[22px] rounded-full"></div>
+              <div className="block bg-[#e8ebf1] w-[40px] h-[23px] rounded-full"></div>
               <div className="dot absolute left-[2px] top-[2.5px] bg-white w-[17px] h-[17px] rounded-full transition"></div>
             </div>
           </label>

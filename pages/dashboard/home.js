@@ -61,21 +61,25 @@ function AdminPanel() {
         <div className="w-[100%] min-h-[100vh] h-[auto]">
           <AdminPanelLayout active={"Dashboard"}>
             <HeadingBar heading={"dashboard"} />
-            <div className="flex justify-between gap-x-[20px]">
+            <div className="flex justify-between gap-x-[20px] flex-col      lg:flex-row">
               {statusCardData.map((value, index) => {
                 return (
-                  <StatusCard key={value.title + 1} data={value} index={index} />
+                  <StatusCard
+                    key={value.title + 1}
+                    data={value}
+                    index={index}
+                  />
                 );
               })}
             </div>
-            <div className="w-[100%] flex gap-x-[20px]">
-              <TitleAndTableCard width={"w-[56.25%]"}>
+            <div className="w-[100%] flex gap-x-[20px] flex-col      lg:flex-row">
+              <TitleAndTableCard width={"w-[100%]     lg:w-[56.25%]"}>
                 <TableHeader>Orders</TableHeader>
                 <CardBody>
                   <TwoColTable data={ordersData} />
                 </CardBody>
               </TitleAndTableCard>
-              <div className="mt-[1.5rem] w-[43.75%]">
+              <div className="mt-[1.5rem] w-[100%]     lg:w-[43.75%]">
                 <TitleAndTableCard>
                   {/* <CardBody p={t:"10",r:"20",b:"10",l:"40"}> */}
                   <CardBody broad={true}>
@@ -90,21 +94,20 @@ function AdminPanel() {
                 </TitleAndTableCard>
               </div>
             </div>
-            <div className="w-[100%] flex gap-x-[20px] mt-[20px]">
-              <TitleAndTableCard width={"w-[62.5%] h-[100%]"}>
+            <div className="w-[100%] flex gap-x-[20px] mt-[20px] flex-col      lg:flex-row">
+              <TitleAndTableCard width={"w-[100%]     lg:w-[62.5%] h-[100%]"}>
                 <TableHeader>Products</TableHeader>
                 <CardBody>
-                  <TwoColTableWithHeading data={productsData} />
-                
-  <Link href="/dashboard/products/uploads">
+                  <TwoColTableWithHeading data={productsData} pageName={'dashboardHomePage'} />
 
-                  <button className="light-brown-btn ffr text-[0.875rem] text-[#fff] leading-[40px] tracking-[0.5px] uppercase bg-[#c83e27] block px-[15px] mt-[20px] mx-auto">
-                    add new product
-                  </button>
+                  <Link href="/dashboard/products/uploads">
+                    <button className="light-brown-btn ffr text-[0.875rem] text-[#fff] leading-[40px] tracking-[0.5px] uppercase bg-[#c83e27] block px-[15px] mt-[20px] mx-auto">
+                      add new product
+                    </button>
                   </Link>
                 </CardBody>
               </TitleAndTableCard>
-              <div className=" w-[37.5%]">
+              <div className="w-[100%]     lg:w-[37.5%]">
                 <div className="mt-[1.5rem]">
                   <TitleAndTableCard>
                     {/* <CardBody p={t:"10",r:"20",b:"10",l:"40"}> */}
@@ -160,7 +163,7 @@ function AdminPanel() {
 function StatusCard({ data, index }) {
   return (
     <div
-      className={`w-[100%] h-[125px] ${
+      className={`w-[100%] h-[auto] ${
         index == 0
           ? "bg-[#609cde]"
           : index == 1
@@ -183,14 +186,14 @@ function StatusCard({ data, index }) {
             : index == 3
             ? styles.bg_grad_4
             : ""
-        } text-white rounded-lg mb-4 overflow-hidden`}
+        } text-white rounded-lg mb- 4 overflow-hidden`}
       >
         <div className="px-[1rem] pt-[1rem]">
           <div className="fwb text-[14px]">
             {data.title == "Total earnings" ? "SAR " : ""}
             {data.number}
           </div>
-          <div className="fwr opacity-[.5] text-[13px] text-[#fff]">
+          <div className="fwr opacity-[.5] text-[13px] text-[#fff] h-[40px]">
             {data.title}
           </div>
         </div>

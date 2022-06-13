@@ -13,11 +13,13 @@ function HomePage() {
     title: "designers",
     text: "Explore our talented and independent designers.",
     img: katwalkBag,
+    type: "designer"
   }; 
   const bestSellingData = {
     title: "Best Selling",
     text: "Our customers' favorite picks",
     img: bestSellingProduct,
+    type: "product"
   }
   return (
     <>

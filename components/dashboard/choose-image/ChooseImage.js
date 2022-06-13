@@ -4,27 +4,15 @@ import styles from "./ChooseImage.module.css";
 import img1 from "../../../assets/images/uploaded/IMG 3136.jpg";
 import CurrentImgCard from "../current-img-card/CurrentImgCard";
 
-function ChooseImage({ data, editpage }) {
-  const [currentImages, setCurrentImages] = useState([
-    {
-      img: img1,
-      name: "",
-      sizeInKB: "199",
-    },
-  ]);
+function ChooseImage({ data, editpage, shopsPage,currentImages,setCurrentImages }) {
+
 
   const showModal = () => {
     document.getElementById("upload_overlay").classList.add("dblock");
   };
   const deletethisImg = (data, img) => {
-    console.log("currentImages before",currentImages)
-    // console.log("deletethisImg called");
     let _currentImages = currentImages;
     for (let i = 0; i < currentImages.length; i++) {
-
-
-    console.log("currentImages[i]",currentImages[i].img.src)
-    console.log("data",data.img.src)
 
       if (currentImages[i].img.src == data.img.src) {
         _currentImages.splice(i, 1);
@@ -32,18 +20,28 @@ function ChooseImage({ data, editpage }) {
     }
     setCurrentImages([]);
     setCurrentImages(_currentImages);
-    console.log("_currentImages after",_currentImages)
-    console.log("currentImages after",currentImages)
   };
 
   return (
     <>
-      <div className="fwr flex mb-[1rem]">
-        <p className="w-[24.4%] text-[#1b1b28] text-[13px] px-[5px] capitalize">
-          <span className="text-[#ff0032]">*</span>
+      <div className="fwr flex mb-[1rem] flex-col      lg:flex-row">
+        <p
+          className={` ${
+            shopsPage && shopsPage == true ? "w-[100%]     lg:w-[23.4%]" : "w-[100%]     lg:w-[24.4%]"
+          } text-[#1b1b28] text-[13px] px-0     lg:px-[5px] capitalize pt-[7px]`}
+        >
+          {shopsPage && shopsPage == true ? (
+            ""
+          ) : (
+            <span className="text-[#ff0032]">*</span>
+          )}
           {data.name} <small>{data.imageResolution}</small>
         </p>
-        <div className="w-[68.75%] px-[15px]">
+        <div
+          className={` ${
+            shopsPage && shopsPage == true ? "w-[100%]" : "w-[100%]     lg:w-[68.75%]"
+          } px-0     lg:px-[15px]`}
+        >
           <div className="flex admin-input relative w-[100%] h-[44px] leading-[30px] bg-[#fff] border-[1px]  rounded-[.25rem]  border-[#ced4da]">
             <p
               className="bg-[#8f97ab26] rounded-[0.25rem] capitalize text-[1rem] text-[#495057] py-[0.375rem] px-[0.75rem]"
@@ -52,26 +50,36 @@ function ChooseImage({ data, editpage }) {
               browse
             </p>
             <div className="text-[#b7b7b7] text-[1rem] py-[0.375rem] px-[0.75rem]">
-              file selected
+              {currentImages && currentImages.length > 0 ? currentImages.length+" files selected" : "Choose file" }
             </div>
           </div>
-          <div className="pt-[8px]">
+          {data && data.note ? (
+            <p className="fwr text-[#6C757D] text-[13px] leading-[1.5] tracking-[0.5px]">
+              <small>{data.note}</small>
+            </p>
+          ) : (
+            ""
+          )}
+
+          <>
             {editpage ? (
               <>
                 {editpage == true ? (
                   <>
-                    {currentImages.map((value, index) => {
-                      return (
-                        <CurrentImgCard
-                          key={value.sizeInKB + 1}
-                          data={value}
-                          index={index}
-                          deletethisImg={deletethisImg}
-                          // selectedImgs={selectedImgs}
-                          // selecImg={selecImg}
-                        />
-                      );
-                    })}
+                    <div className="pt-[8px]">
+                      {currentImages.map((value, index) => {
+                        return (
+                          <CurrentImgCard
+                            key={value.sizeInKB + 1}
+                            data={value}
+                            index={index}
+                            deletethisImg={deletethisImg}
+                            // selectedImgs={selectedImgs}
+                            // selecImg={selecImg}
+                          />
+                        );
+                      })}
+                    </div>
                   </>
                 ) : (
                   ""
@@ -80,7 +88,7 @@ function ChooseImage({ data, editpage }) {
             ) : (
               ""
             )}
-          </div>
+          </>
         </div>
       </div>
       {/* <ChooseImageModal /> */}

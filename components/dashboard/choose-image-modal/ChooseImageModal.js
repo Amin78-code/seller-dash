@@ -7,6 +7,7 @@ import img1 from "../../../assets/images/uploaded/IMG 3136.jpg";
 import img2 from "../../../assets/images/uploaded/IMG_2376.jpg";
 import img3 from "../../../assets/images/uploaded/IMG_2377.jpg";
 import img4 from "../../../assets/images/uploaded/IMG_2378.jpg";
+import UploadNewImgCard from "../upload-new-img-card/UploadNewImgCard";
 
 const uploadedPictures = [
   {
@@ -34,6 +35,12 @@ const uploadedPictures = [
 function ChooseImageModal({ data }) {
   // console.log("image--", img1);
   const [selectedImgs, setSelectedImgs] = useState([]);
+  const [uploadFailed, setUploadFailed] = useState(true);
+  const [uploadNewImg, setUploadNewImg] = useState([
+    { img: img1 },
+    { img: img2 },
+  ]);
+
   const tab1 = useRef(null);
   const tab2 = useRef(null);
 
@@ -62,7 +69,7 @@ function ChooseImageModal({ data }) {
   };
 
   const selecImg = (data, id) => {
-    console.log("selecImg called")
+    // console.log("selecImg called")
     let _uploadedPictures = uploadedPictures;
     let _selectedImgs = selectedImgs;
 
@@ -75,9 +82,9 @@ function ChooseImageModal({ data }) {
         for (let j = 0; j < _selectedImgs.length; j++) {
           if (_selectedImgs[j] == _imgPath) {
             alreadyExist = true;
-            _selectedImgs.splice(j,1);
-            setSelectedImgs([])
-            setSelectedImgs(_selectedImgs)
+            _selectedImgs.splice(j, 1);
+            setSelectedImgs([]);
+            setSelectedImgs(_selectedImgs);
           }
         }
         if (alreadyExist !== true) {
@@ -88,8 +95,8 @@ function ChooseImageModal({ data }) {
     setSelectedImgs([]);
     setSelectedImgs(_selectedImgs);
 
-    console.log("_rrr _selectedImgs", _selectedImgs);
-    console.log("rrr selectedImgs", selectedImgs);
+    // console.log("_rrr _selectedImgs", _selectedImgs);
+    // console.log("rrr selectedImgs", selectedImgs);
   };
 
   return (
@@ -102,7 +109,7 @@ function ChooseImageModal({ data }) {
             className="text-[20px] absolute right-[25px] top-[20px]"
             onClick={() => hideModal()}
           >
-            X
+            <i class="las la-times"></i>
           </span>
           <ul className="flex flex-wrap text-sm font-medium gap-x-[20px] text-center text-gray-500 border-b border-gray-200 dark:border-gray-700 dark:text-gray-400 px-[40px] pt-[25px]">
             <li className="mr-2" onClick={() => tabToggle("tab1")}>
@@ -171,7 +178,113 @@ function ChooseImageModal({ data }) {
               </div>
             </div>
             <div className="h-[100%] dnone" ref={tab2}>
-              tab2
+              {/* <div
+                className={`w-[100%] h-[100%] border-[1px] border-[#00000020] rounded-[.25rem] bg-[#f8f9fa] border-[#dee2e6] border-[1px] p-[.5rem]`}
+              >
+                <div className="w-[100%] h-[100%] border-[#dfdfdf] border-[1px] border-dashed p-[1rem] flex justify-center items-center flex-col">
+                  <h1 className="text-[#525252] text-[27px]">
+                    Drop files here, paste or&nbsp;
+                   <span  className="cursor-pointer">
+                   <span className="text-[#2275d7e6] cursor-pointer hover:underline relative">
+                      Browse
+                      <input
+                        type="file"
+                        id="img"
+                        name="img"
+                        accept="image/*"
+                        className="absolute cursor-pointer w-[100%] h-[100%] left-0 top-0 opacity-0"
+                      />
+                    </span>
+                   </span>
+                  </h1>
+                </div>
+              </div> */}
+              <div className="w-[100%] h-[100%] relative overflow-hidden z-[1]">
+                {/* <div
+                  className={`w-[100%] h-[100%] border-[1px] border-[#00000020] rounded-[.25rem] bg-[#f8f9fa] border-[#dee2e6] border-[1px] p-[.5rem] translate-y-[-50 px]          border-[4px]   border-[red]`}
+                >
+                  <div className="w-[100%] min-h-[50px] h-[50px] flex justify-between items-center px-[10px]">
+                    <div className="w-[90px]"></div>
+                    <p className="fwr text-[14px] text-[#333] ">
+                      Upload complete
+                    </p>
+                    <button className="w-[90px] fwr leading-[1] text-[#2275d7] text-[14px] flex items-center">
+                      <i class="las la-plus text-[#2275d7] text-[16px] mr-[3px]"></i>
+                      Add more
+                    </button>
+                  </div>
+
+                  <div
+                    className={`w-[100%] ${styles.inner_browse_div} border-[#dfdfdf] border-[1px] border-dashed p-[1rem] flex justify-center items-center flex-col`}
+                  >
+                    <h1 className="text-[#525252] text-[27px]">
+                      Drop files here, paste or&nbsp;
+                      <span className="cursor-pointer">
+                        <span className="text-[#2275d7e6] cursor-pointer hover:underline relative">
+                          Browse
+                          <input
+                            type="file"
+                            id="img"
+                            name="img"
+                            accept="image/*"
+                            className="absolute cursor-pointer w-[100%] h-[100%] left-0 top-0 opacity-0"
+                          />
+                        </span>
+                      </span>
+                    </h1>
+                  </div>
+                </div> */}
+
+                <div
+                  className={`w-[100%] h-[100%] border-[1px] border-[#00000020] rounded-[.25rem] bg-[#f8f9fa] border-[#dee2e6] border-[1px] flex flex-col `}
+                >
+                  <div className="w-[100%] min-h-[50px] h-[50px] border-[#dfdfdf] border-b-[1px] flex justify-between items-center px-[10px]">
+                    <div className="w-[90px]"></div>
+                    <p className="fwr text-[14px] text-[#333] ">
+                      Upload complete
+                    </p>
+                    <button className="w-[90px] fwr leading-[1] text-[#2275d7] text-[14px] flex items-center">
+                      <i class="las la-plus text-[#2275d7] text-[16px] mr-[3px]"></i>
+                      Add more
+                    </button>
+                  </div>
+                  <div className="w-[100%] flex-[4] border-[#dfdfdf ] border-b-[1px ] p-[15px] flex flex-wrap gap-x-[28px] overflow-auto">
+                    {uploadNewImg.map((value) => {
+                      return <UploadNewImgCard data={value} />;
+                    })}
+                  </div>
+
+                  {uploadFailed && uploadFailed == true ? (
+                    <div className="w-[100%] h-[45px] bg-[#fff]">
+                      <div className="w-[100%] h-[2px] ">
+                        <div className={`w-[60%] h-[2px] bg-[#e32437] `}></div>
+                      </div>
+                      <div className="w-[100%] h-[100%] p-[15px] flex justify-start items-center">
+                        <p className="capitalize text-[12px] text-[#333] flex">
+                          <i className="las la-times text-[16px] text-[#e32437] mr-[5px]"></i>
+                          upload failed
+                          <i className="las la-question text-[16px] text-[#e32437] cursor-help ml-[5px]"></i>
+                          {/* <i className="lar la-question text-[16px] text-[#e32437] ml-[5px]"></i> */}
+                        </p>
+                      </div>
+                    </div>
+                  ) : (
+                    <div className="w-[100%] h-[45px] bg-[#fff]">
+                      <div className="w-[100%] h-[2px] ">
+                        <div className={`w-[60%] h-[2px] bg-[#1bb240]`}></div>
+                      </div>
+                      <div className="w-[100%] h-[100%] p-[15px] flex justify-start items-center">
+                        <p className="capitalize text-[12px] text-[#333] flex">
+                          <i className="las la-check text-[16px] text-[#1bb240] mr-[5px]"></i>
+                          complete
+                        </p>
+                      </div>
+                    </div>
+                  )}
+                </div>
+
+                
+              </div>
             </div>
           </div>
           <div className="w-[100%] h-[89px] bg-[#f8f9fa] border-t-[1px] border-[#ebedf2] py-[10px] px-[25px] flex justify-between items-center">

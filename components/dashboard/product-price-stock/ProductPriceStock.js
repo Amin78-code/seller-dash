@@ -5,13 +5,13 @@ import styles from "./ProductPriceStock.module.css";
 function ProductPriceStock({ data }) {
   return (
     <div
-      className="fwr flex mb-[1rem]"
+      className="fwr flex mb-[1rem] flex-col      lg:flex-row"
     >
-      <p className="w-[24.4%] text-[#1b1b28] text-[13px] px-[5px] capitalize">
+      <p className="w-[100%]     lg:w-[24.4%] text-[#1b1b28] text-[13px] px-0      lg:px-[5px] capitalize">
         <span className="text-[#ff0032]">*</span>
         {data.name}
       </p>
-      <div className="w-[37.5%] px-[15px]">
+      <div className="w-[100%]     lg:w-[37.5%] px-0      lg:px-[15px]">
         {data.name == "Unit price" ? (
           <input
             type="number"

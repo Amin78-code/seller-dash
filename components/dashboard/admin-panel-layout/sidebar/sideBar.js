@@ -4,19 +4,24 @@ import Link from "next/link";
 import styles from "./SideBar.module.css";
 import profileImg from "../../../../assets/images/icons/profile-img.png";
 
-function SideBar({ active }) {
+function SideBar({ active, openSidebar }) {
   return (
-    <div className="w-[267px] h-[100%] rounded-[5px] shadow-md border-[1px] border-[#ebedf2]">
-      <div className="flex flex-col justify-center items-center mb-[1.5rem]">
-        <div className="w-[64px] h-[64px] rounded-full overflow-hidden mt-[16px] mb-[33px]">
+    <div className="w-[320px]    md:w-[267px] h-[auto] bg-[#fff] rounded-0      md:rounded-[5px] shadow-md border-[1px] border-[#ebedf2] ml-[-10px]      md:ml-0">
+      <div className="flex flex-col justify-center items-center mb-[1.5rem] relative">
+        <div
+          className="w-[64px] h-[64px] rounded-full overflow-hidden mt-[16px] mb-[33px]"
+          id="profileImg"
+        >
           <span className="image_container">
             <Image src={profileImg} alt="image" />
           </span>
         </div>
         <h6 className="fwr text-[13px] text-[#1b1b28] leading-[1.5] tracking-[0.5px] font-[600] flex items-center">
           Aliya Almusawi
-          <div className="w-[15px] h-[15px] bg-[#a2a3b7] rounded-full opacity-[.6] ml-[12px]"></div>
+          <i class="las la-check-circle ml-[12px]"></i>
         </h6>
+        <i class="las la-times text-[25px] absolute top-[10px] right-[10px] block     md:hidden"   onClick={() => openSidebar()}></i>
+        <i class="las la-sign-out-alt text-[25px] absolute top-[10px] left-[15px] block     md:hidden"   onClick={() => openSidebar()}></i>
       </div>
 
       <nav className={`${styles.nav} mb-[1rem]`}>
@@ -28,7 +33,7 @@ function SideBar({ active }) {
                   active == "Dashboard" ? styles.active : ""
                 } fwr w-[100%] flex items-center h-[40px] text-[#63666b] text-[0.8125rem] tracking-[0.5px] capitalize border-[#fff] border-l-[3px] taPoint3 py-[10px] px-[25px] cursor-pointer`}
               >
-                <div className="w-[15px] h-[15px] bg-[#a2a3b7] rounded-full opacity-[.6] mr-[5px]"></div>
+                <i className="las la-home mr-[6px]"></i>
                 Dashboard
               </a>
             </Link>
@@ -40,7 +45,7 @@ function SideBar({ active }) {
                   active == "PurchaseHistory" ? styles.active : ""
                 } fwr w-[100%] flex items-center h-[40px] text-[#63666b] text-[0.8125rem] tracking-[0.5px] capitalize border-[#fff] border-l-[3px] taPoint3 py-[10px] px-[25px] cursor-pointer`}
               >
-                <div className="w-[15px] h-[15px] bg-[#a2a3b7] rounded-full opacity-[.6] mr-[5px]"></div>
+                <i className="las la-file-alt mr-[6px]"></i>
                 purchase history
               </a>
             </Link>
@@ -52,7 +57,7 @@ function SideBar({ active }) {
                   active == "Wishlists" ? styles.active : ""
                 } fwr w-[100%] flex items-center h-[40px] text-[#63666b] text-[0.8125rem] tracking-[0.5px] capitalize border-[#fff] border-l-[3px] taPoint3 py-[10px] px-[25px] cursor-pointer`}
               >
-                <div className="w-[15px] h-[15px] bg-[#a2a3b7] rounded-full opacity-[.6] mr-[5px]"></div>
+                <i className="las la-heart mr-[6px]"></i>
                 wishlist
               </a>
             </Link>
@@ -64,7 +69,7 @@ function SideBar({ active }) {
                   active == "Products" ? styles.active : ""
                 } fwr w-[100%] flex items-center h-[40px] text-[#63666b] text-[0.8125rem] tracking-[0.5px] capitalize border-[#fff] border-l-[3px] taPoint3 py-[10px] px-[25px] cursor-pointer`}
               >
-                <div className="w-[15px] h-[15px] bg-[#a2a3b7] rounded-full opacity-[.6] mr-[5px]"></div>
+                <i className="lab la-sketch mr-[6px]"></i>
                 products
               </a>
             </Link>
@@ -76,7 +81,7 @@ function SideBar({ active }) {
                   active == "Orders" ? styles.active : ""
                 } fwr w-[100%] flex items-center h-[40px] text-[#63666b] text-[0.8125rem] tracking-[0.5px] capitalize border-[#fff] border-l-[3px] taPoint3 py-[10px] px-[25px] cursor-pointer`}
               >
-                <div className="w-[15px] h-[15px] bg-[#a2a3b7] rounded-full opacity-[.6] mr-[5px]"></div>
+                <i className="las la-money-bill mr-[6px]"></i>
                 orders
               </a>
             </Link>
@@ -88,7 +93,7 @@ function SideBar({ active }) {
                   active == "Pickup" ? styles.active : ""
                 } fwr w-[100%] flex items-center h-[40px] text-[#63666b] text-[0.8125rem] tracking-[0.5px] capitalize border-[#fff] border-l-[3px] taPoint3 py-[10px] px-[25px] cursor-pointer`}
               >
-                <div className="w-[15px] h-[15px] bg-[#a2a3b7] rounded-full opacity-[.6] mr-[5px]"></div>
+                <i className="las la-truck-pickup mr-[6px]"></i>
                 create pickup
               </a>
             </Link>
@@ -100,7 +105,7 @@ function SideBar({ active }) {
                   active == "ViewPickup" ? styles.active : ""
                 } fwr w-[100%] flex items-center h-[40px] text-[#63666b] text-[0.8125rem] tracking-[0.5px] capitalize border-[#fff] border-l-[3px] taPoint3 py-[10px] px-[25px] cursor-pointer`}
               >
-                <div className="w-[15px] h-[15px] bg-[#a2a3b7] rounded-full opacity-[.6] mr-[5px]"></div>
+                <i className="las la-truck-pickup mr-[6px]"></i>
                 view pickup
               </a>
             </Link>
@@ -112,26 +117,34 @@ function SideBar({ active }) {
                   active == "WithdrawRequests" ? styles.active : ""
                 } fwr w-[100%] flex items-center h-[40px] text-[#63666b] text-[0.8125rem] tracking-[0.5px] capitalize border-[#fff] border-l-[3px] taPoint3 py-[10px] px-[25px] cursor-pointer`}
               >
-                <div className="w-[15px] h-[15px] bg-[#a2a3b7] rounded-full opacity-[.6] mr-[5px]"></div>
+                <i className="las la-money-bill-wave-alt mr-[6px]"></i>
                 money withdraw
               </a>
             </Link>
           </li>
           <li>
-            <a
-              className={`fwr w-[100%] flex items-center h-[40px] text-[#63666b] text-[0.8125rem] tracking-[0.5px] capitalize border-[#fff] border-l-[3px] taPoint3 py-[10px] px-[25px] cursor-pointer`}
-            >
-              <div className="w-[15px] h-[15px] bg-[#a2a3b7] rounded-full opacity-[.6] mr-[5px]"></div>
-              shop setting
-            </a>
+            <Link href="/dashboard/shops">
+              <a
+                className={`${
+                  active == "Shops" ? styles.active : ""
+                } fwr w-[100%] flex items-center h-[40px] text-[#63666b] text-[0.8125rem] tracking-[0.5px] capitalize border-[#fff] border-l-[3px] taPoint3 py-[10px] px-[25px] cursor-pointer`}
+              >
+                <i className="las la-cog mr-[6px]"></i>
+                shop setting
+              </a>
+            </Link>
           </li>
           <li>
-            <a
-              className={`fwr w-[100%] flex items-center h-[40px] text-[#63666b] text-[0.8125rem] tracking-[0.5px] capitalize border-[#fff] border-l-[3px] taPoint3 py-[10px] px-[25px] cursor-pointer`}
-            >
-              <div className="w-[15px] h-[15px] bg-[#a2a3b7] rounded-full opacity-[.6] mr-[5px]"></div>
-              manage profile
-            </a>
+            <Link href="/dashboard/profile">
+              <a
+                className={`${
+                  active == "Profiles" ? styles.active : ""
+                } fwr w-[100%] flex items-center h-[40px] text-[#63666b] text-[0.8125rem] tracking-[0.5px] capitalize border-[#fff] border-l-[3px] taPoint3 py-[10px] px-[25px] cursor-pointer`}
+              >
+                <i className="las la-user mr-[6px]"></i>
+                manage profile
+              </a>
+            </Link>
           </li>
         </ul>
       </nav>

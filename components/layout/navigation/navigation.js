@@ -248,10 +248,7 @@ function Navigation() {
         >
           <div className="pr-[6px] order-2 pb-[1px] border-r-[0px] border-[#e2e5ec]     sm:order-[unset] sm:border-r-[1px]">
             {/* search for for desktop */}
-            <div
-              className="relative hidden       lg:block"
-              onClick={() => searchDesktopToggler()}
-            >
+            <div className="relative hidden       lg:block">
               <input
                 type="email"
                 name="email"
@@ -259,7 +256,10 @@ function Navigation() {
                   " "
                 )} work-regular px-[10px] bg-white focus:outline-none block w-f ull transition-all duration-300 w-[0] absolute right-0 top-0      sm:text-[13px] show-search-inpu t`}
               />
-              <div className="my-icon search w-[21px] h-[19px] cursor-pointer relative z-4 bgAllIcon bg-[left_-24px_top_-445px]"></div>
+              <div
+                className="my-icon search w-[21px] h-[19px] cursor-pointer relative z-4 bgAllIcon bg-[left_-24px_top_-445px]"
+                onClick={() => searchDesktopToggler()}
+              ></div>
             </div>
             {/* search for for mob */}
             <div
@@ -353,10 +353,14 @@ function Navigation() {
             </span>
           </div>
           <div className="px-[8px] flex items-center border-r-[1px] border-[#e2e5ec] hidden       lg:flex">
-            <div className="my-icon heart w-[21px] h-[19px] cursor-pointer relative z-4 bgAllIcon bg-[left_-1px_top_-385px]"></div>
-            <span className="work-regular text-[12px] ml-[7px] pt-[3px]">
-              0
-            </span>
+            <Link href="/dashboard/wishlists">
+              <a className="flex items-center">
+                <div className="my-icon heart w-[21px] h-[19px] cursor-pointer relative z-4 bgAllIcon bg-[left_-1px_top_-385px]"></div>
+                <span className="work-regular text-[12px] ml-[7px] pt-[3px]">
+                  0
+                </span>
+              </a>
+            </Link>
           </div>
           <div className="px-[7px] border-r-[1px] border-[#e2e5ec] hidden       lg:flex">
             <Link href="/dashboard/home">
@@ -619,7 +623,7 @@ function Navigation() {
         <div
           className={`${styles.mob_menu} ${cartToggleClasses.join(
             " "
-          )} cart-box fixed top-0 left-0 w-[100%] h-[100vh]`}
+          )} cart-box fixed top-0 left-0 w-[100%] h-[100vh] z-[4]`}
         >
           <div
             className={`menu-overlay absolute top-0 left-0 w-[100%] h-[100%] bg-[#00000080] opacity-0`}

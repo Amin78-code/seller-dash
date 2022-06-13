@@ -15,7 +15,7 @@ function CurrentImgCard({ data, index, deletethisImg }) {
   //  }
   return (
     <div
-      className={`relative w-[100PX] h-[145px] rounded-[0.25rem] bg-[#fff]     ----- th}  ----- }    border-[#00000020]  border-[1px] mb-[10px]`}
+      className={`relative w-[100px] h-[145px] rounded-[0.25rem] bg-[#fff]     ----- th}  ----- }    border-[#00000020]  border-[1px] mb-[10px]`}
       // onClick={() => selecImg(data, index)}
     >
          <div className="w-[17px] h-[17px] bg-[#000] rounded-full text-[10px] text-[#fff] absolute right-[-6px] top-[-5px] z-[2] flex justify-center item-center" onClick={()=> deletethisImg(data,index)}>x</div>

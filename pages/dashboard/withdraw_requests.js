@@ -7,34 +7,12 @@ import TitleAndTableCard from "../../components/dashboard/title-and-table-card/T
 import TableHeader from "../../components/dashboard/table-header/TableHeader";
 import TwoColTableWithHeading from "../../components/dashboard/two-col-table-with-heading/TwoColTableWithHeading";
 import CardBody from "../../components/dashboard/card-body/CardBody";
-import TwoColTable from "../../components/dashboard/two-col-table/TwoColTable";
 import HeadingBar from "../../components/heading-bar/HeadingBar";
-import ContrastPipingTrimAbaya from "../../assets/images/products/Contrast Piping Trim Abaya.jpg";
-import CurvyFrontLinebuttonAbaya from "../../assets/images/products/Curvy Front Line button Abaya.jpg";
-import PearlEmbroideryAbaya from "../../assets/images/products/Pearl Embroidery Abaya.jpg";
-import PrintedSleeveAbaya from "../../assets/images/products/Printed Sleeve Abaya.jpg";
-import AbayaSetwithSideSlet from "../../assets/images/products/Abaya Set with Side Slet.jpg";
-import WishListCard from "../../components/dashboard/wishlist-card/WishListCard";
-import BottomShadowCard from "../../components/dashboard/bottom-shadow-card/BottomShadowCard";
+import styles from "../../components/WithdrawRequests.module.css";
 
 const productsData = {
-  headings: [
-    "#",
-    "name",
-    "designer name",
-    "Category",
-    "Current Qty",
-    "Base Price",
-    "Options",
-  ],
-  data: [
-    {
-      value: ["1", "test 2", "Aliya Almusawi", "Abaya", "10", "500.00"],
-    },
-    {
-      value: ["2", "TEST", "Aliya Almusawi", "Abaya", "87", " 1.00"],
-    },
-  ],
+  headings: ["#", "date", "amount", "status", "message"],
+  data: [],
 };
 
 function WithdrawRequests() {
@@ -43,13 +21,14 @@ function WithdrawRequests() {
       <Layout>
         <div className="w-[100%] min-h-[100vh] h-[auto]">
           <AdminPanelLayout active={"WithdrawRequests"}>
-            <HeadingBar heading={"products"} />
-            <div>
+            <HeadingBar heading={"Money Withdraw"} />
+            <div className="flex gap-x-[1.2rem] flex-col      lg:flex-row gap-y-[1rem]      lg:gap-y-[0]">
+              <PendingBalance />
               <AddNewCard />
             </div>
             <div className="w-[100%] pt-[12px]">
               <TitleAndTableCard width={"w-[100%] h-[100%]"}>
-                <TableHeader>Products</TableHeader>
+                <TableHeader>Withdraw Request history</TableHeader>
                 <CardBody>
                   <TwoColTableWithHeading
                     data={productsData}
@@ -68,15 +47,35 @@ function WithdrawRequests() {
 function AddNewCard() {
   return (
     <Link href="/dashboard/products/uploads">
-      <div className="w-[196px] rounded-[.25rem] bg-[#fff] taPoint3 cursor-pointer drop-shadow-[0_0.15rem_0.25rem_rgba(0,0,0,0.075)] hover:drop-shadow-[0_0.5rem_0.4rem_rgba(0,0,0,0.15)] p-[1rem] mb-[20px]">
-        <div className="w-[60px] h-[60px] bg-[#6c757d] rounded-full mx-auto mb-[1rem] flex justify-center items-center text-[#fff] text-[50px]">
-          +
+      <a>
+        <div className="w-[283px] rounded-[.25rem] bg-[#fff] taPoint3 cursor-pointer drop-shadow-[0_0.15rem_0.25rem_rgba(0,0,0,0.075)] hover:drop-shadow-[0_0.5rem_0.4rem_rgba(0,0,0,0.15)] p-[1rem] mb-[20px]">
+        <div className="w-[60px] h-[60px] bg-[#6c757d] rounded-full mx-auto mb-[1rem] flex justify-center items-center text-[#fff] text-[40px]">
+            <i class="las la-plus text-[#fff]"></i>
+          </div>
+          <p className="fwr text-[1.125rem] text-[#c53a19] capitalize text-center">
+            Send Withdraw Request
+          </p>
         </div>
-        <p className="fwr text-[1.125rem] text-[#c53a19] capitalize">
-          add new product
-        </p>
-      </div>
+      </a>
     </Link>
+  );
+}
+
+function PendingBalance() {
+  return (
+    <div
+      className={`${styles.pending_balance_div} w-[283px] h-[100%] rounded-[.25rem] taPoint3 drop-shadow-[0_0.15rem_0.25rem_rgba(0,0,0,0.075)] p-[1rem] text-center`}
+    >
+      <div className="w-[30px] h-[30px] bg-[#ca4c87] rounded-full mx-auto mb-[1rem] flex justify-center items-center text-[#fff] text-[18px]">
+        $
+      </div>
+      <p className="fwb text-[12px] text-[#fff] uppercase">
+        sar <span>0</span>
+      </p>
+      <p className="fwr text-[13px] text-[#fff] opacity-50 capitalize text-center">
+        Pending Balance
+      </p>
+    </div>
   );
 }
 
