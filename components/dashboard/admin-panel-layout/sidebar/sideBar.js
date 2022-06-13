@@ -18,10 +18,10 @@ function SideBar({ active, openSidebar }) {
         </div>
         <h6 className="fwr text-[13px] text-[#1b1b28] leading-[1.5] tracking-[0.5px] font-[600] flex items-center">
           Aliya Almusawi
-          <i class="las la-check-circle ml-[12px]"></i>
+          <i className="las la-check-circle ml-[12px]"></i>
         </h6>
-        <i class="las la-times text-[25px] absolute top-[10px] right-[10px] block     md:hidden"   onClick={() => openSidebar()}></i>
-        <i class="las la-sign-out-alt text-[25px] absolute top-[10px] left-[15px] block     md:hidden"   onClick={() => openSidebar()}></i>
+        <i className="las la-times text-[25px] absolute top-[10px] right-[10px] block     md:hidden"   onClick={() => openSidebar()}></i>
+        <i className="las la-sign-out-alt text-[25px] absolute top-[10px] left-[15px] block     md:hidden"   onClick={() => openSidebar()}></i>
       </div>
 
       <nav className={`${styles.nav} mb-[1rem]`}>

@@ -25,7 +25,7 @@ function ManageProfilePaymentSetting({ data, title }) {
               onClick={() => openCardBody("basicInfo")}
             >
               edit
-             <i class="las la-ellipsis-v mx-[5px]"></i>
+             <i className="las la-ellipsis-v mx-[5px]"></i>
             </p>
           </div>
         </TableHeader>

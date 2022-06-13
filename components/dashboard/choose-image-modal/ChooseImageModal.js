@@ -109,7 +109,7 @@ function ChooseImageModal({ data }) {
             className="text-[20px] absolute right-[25px] top-[20px]"
             onClick={() => hideModal()}
           >
-            <i class="las la-times"></i>
+            <i className="las la-times"></i>
           </span>
           <ul className="flex flex-wrap text-sm font-medium gap-x-[20px] text-center text-gray-500 border-b border-gray-200 dark:border-gray-700 dark:text-gray-400 px-[40px] pt-[25px]">
             <li className="mr-2" onClick={() => tabToggle("tab1")}>
@@ -209,7 +209,7 @@ function ChooseImageModal({ data }) {
                       Upload complete
                     </p>
                     <button className="w-[90px] fwr leading-[1] text-[#2275d7] text-[14px] flex items-center">
-                      <i class="las la-plus text-[#2275d7] text-[16px] mr-[3px]"></i>
+                      <i className="las la-plus text-[#2275d7] text-[16px] mr-[3px]"></i>
                       Add more
                     </button>
                   </div>
@@ -244,13 +244,13 @@ function ChooseImageModal({ data }) {
                       Upload complete
                     </p>
                     <button className="w-[90px] fwr leading-[1] text-[#2275d7] text-[14px] flex items-center">
-                      <i class="las la-plus text-[#2275d7] text-[16px] mr-[3px]"></i>
+                      <i className="las la-plus text-[#2275d7] text-[16px] mr-[3px]"></i>
                       Add more
                     </button>
                   </div>
                   <div className="w-[100%] flex-[4] border-[#dfdfdf ] border-b-[1px ] p-[15px] flex flex-wrap gap-x-[28px] overflow-auto">
                     {uploadNewImg.map((value) => {
-                      return <UploadNewImgCard data={value} />;
+                      return <UploadNewImgCard key={value} data={value} />;
                     })}
                   </div>
 

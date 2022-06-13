@@ -12,14 +12,14 @@ function BottomBar({ active, openSidebar }) {
           active == "Dashboard" ? styles.active : ""
         } bg-[#fff] w-[24.9%]  flex justify-center items-center`}
       >
-        <i class="text-[1.7em] text-[#1b1b28.] las la-home la-2x"></i>
+        <i className="text-[1.7em] text-[#1b1b28.] las la-home la-2x"></i>
       </div>
       <div
         className={`${
           active == "Wishlists" ? styles.active : ""
         } bg-[#fff] w-[24.9%]  flex justify-center items-center`}
       >
-        <i class="text-[1.7em] text-[#1b1b28.] las la-heart la-2x relative flex">
+        <i className="text-[1.7em] text-[#1b1b28.] las la-heart la-2x relative flex">
           <span className="fwr flex justify-center items-center absolute right-[-19px] top-0 bg-[#c53a19] rounded-[3px] w-[19px] h-[17px] text-[#fff] text-[9px] p-[2px]">
             0
           </span>
@@ -30,7 +30,7 @@ function BottomBar({ active, openSidebar }) {
           active == "Dashboard" ? styles.active : ""
         } bg-[#fff] w-[24.9%]  flex justify-center items-center`}
       >
-        <i class="text-[1.7em] text-[#1b1b28.] las la-shopping-cart la-2x relative flex">
+        <i className="text-[1.7em] text-[#1b1b28.] las la-shopping-cart la-2x relative flex">
           <span className="fwr flex justify-center items-center absolute right-[-19px] top-0 bg-[#c53a19] rounded-[3px] w-[19px] h-[17px] text-[#fff] text-[9px] p-[2px]">
             0
           </span>

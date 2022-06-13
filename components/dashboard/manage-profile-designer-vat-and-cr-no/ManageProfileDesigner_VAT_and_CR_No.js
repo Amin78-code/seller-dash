@@ -34,7 +34,7 @@ function ManageProfileDesigner_VAT_and_CR_No({ data, title }) {
               onClick={() => openCardBody("basicInfo")}
             >
               edit
-              <i class="las la-ellipsis-v mx-[5px]"></i>
+              <i className="las la-ellipsis-v mx-[5px]"></i>
             </p>
           </div>
         </TableHeader>

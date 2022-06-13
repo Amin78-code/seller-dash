@@ -41,7 +41,7 @@ function ManageProfileAddress({ data, title }) {
               onClick={() => openCardBody("basicInfo")}
             >
               edit
-             <i class="las la-ellipsis-v mx-[5px]"></i>
+             <i className="las la-ellipsis-v mx-[5px]"></i>
             </p>
           </div>
         </TableHeader>
@@ -62,7 +62,7 @@ function ManageProfileAddress({ data, title }) {
                 })}
 
                 <div className="absolute right-[10px] top-[10px]">
-                <i class="las la-ellipsis-v mx-[5px] cursor-pointer" onClick={() => openSelect("editOrDelete")}></i>
+                <i className="las la-ellipsis-v mx-[5px] cursor-pointer" onClick={() => openSelect("editOrDelete")}></i>
                   
                   <div
                     className="absolute w-[165px] right-[-10px] top-[25px] z-[2] dnone"
@@ -116,7 +116,7 @@ function AddNewAddress() {
     <div
       className={`border-[1px] border-[#00000020] rounded-[.25rem] bg-[#f8f9fa] border-[#dee2e6] border-[1px] p-[1rem] mt-[15px] flex justify-center items-center flex-col`}
     >
-      <i class="las la-plus text-[26px] cursor-pointer mr-[5px]"></i>
+      <i className="las la-plus text-[26px] cursor-pointer mr-[5px]"></i>
       <p className="fwr capitalize text-[13px] text-[#1b1b28] mt-[3px]">
         add new address
       </p>

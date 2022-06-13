@@ -658,8 +658,8 @@ function AddNewProduct() {
                                 {productCategories.map((value) => {
                                   return (
                                     <li
+                                    key={value + 1}
                                       onClick={() => setCategory(value)}
-                                      key={value + 1}
                                       className={`${
                                         value == selectedCategory
                                           ? styles.active_option
@@ -739,6 +739,7 @@ function AddNewProduct() {
                                   (value, index) => {
                                     return (
                                       <li
+                                      key={value.name}
                                         onClick={() =>
                                           settingSelectedColor(value, index)
                                         }
@@ -751,7 +752,7 @@ function AddNewProduct() {
                                             className="dnone"
                                             id={"colorOptions" + index}
                                           >
-                                            <i class="las la-check"></i>
+                                            <i className="las la-check"></i>
                                           </div>
                                         </div>
                                       </li>
@@ -813,7 +814,7 @@ function AddNewProduct() {
                                           className="dnone"
                                           id={"sheilaColorOptions" + inde}
                                         >
-                                          <i class="las la-check"></i>
+                                          <i className="las la-check"></i>
                                         </div>
                                       </div>
                                     </li>
@@ -892,7 +893,7 @@ function AddNewProduct() {
                                             className="dnone"
                                             id={"sheilaLengthOptions" + index}
                                           >
-                                            <i class="las la-check"></i>
+                                            <i className="las la-check"></i>
                                           </div>
                                         </div>
                                       </li>
@@ -954,10 +955,10 @@ function AddNewProduct() {
                                 {productVariations.size.map((value, index) => {
                                   return (
                                     <li
+                                    key={value.name + 1}
                                       onClick={() =>
                                         settingSelectedSize(value, index)
                                       }
-                                      key={value.name + 1}
                                       className={`
                                               block relative text-[#212529] fwr text-[1rem] py-[0.15rem] px-[1rem] hover:bg-[#c53a24] hover:text-[#fff] overflow-hidden overflow-ellipsis whitespace-nowrap taPoint3`}
                                     >
@@ -967,7 +968,7 @@ function AddNewProduct() {
                                           className="dnone"
                                           id={"sizeOptions" + index}
                                         >
-                                          <i class="las la-check"></i>
+                                          <i className="las la-check"></i>
                                         </div>
                                       </div>
                                     </li>
@@ -1124,8 +1125,8 @@ function AddNewProduct() {
                                   {value.options.map((valu) => {
                                     return (
                                       <li
+                                      key={valu + 1}
                                         onClick={() => setOption(valu, index)}
-                                        key={valu + 1}
                                         className={`
                                         
                                         ${

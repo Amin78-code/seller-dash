@@ -103,7 +103,7 @@ function Bust({ data,isDisableAllAlterations, openAltration }) {
                         <div className="flex justify-between">
                           {value}
                           <div className="dnone" id={"bustOptions" + index}>
-                          <i class="las la-check"></i>
+                          <i className="las la-check"></i>
                           </div>
                         </div>
                       </li>

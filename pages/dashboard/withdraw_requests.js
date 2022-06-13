@@ -50,7 +50,7 @@ function AddNewCard() {
       <a>
         <div className="w-[283px] rounded-[.25rem] bg-[#fff] taPoint3 cursor-pointer drop-shadow-[0_0.15rem_0.25rem_rgba(0,0,0,0.075)] hover:drop-shadow-[0_0.5rem_0.4rem_rgba(0,0,0,0.15)] p-[1rem] mb-[20px]">
         <div className="w-[60px] h-[60px] bg-[#6c757d] rounded-full mx-auto mb-[1rem] flex justify-center items-center text-[#fff] text-[40px]">
-            <i class="las la-plus text-[#fff]"></i>
+            <i className="las la-plus text-[#fff]"></i>
           </div>
           <p className="fwr text-[1.125rem] text-[#c53a19] capitalize text-center">
             Send Withdraw Request

@@ -728,7 +728,7 @@ function AddNewProduct() {
                                             className="dnone"
                                             id={"colorOptions" + index}
                                           >
-                                            <i class="las la-check"></i>
+                                            <i className="las la-check"></i>
                                           </div>
                                         </div>
                                       </li>
@@ -790,7 +790,7 @@ function AddNewProduct() {
                                           className="dnone"
                                           id={"sheilaColorOptions" + inde}
                                         >
-                                          <i class="las la-check"></i>
+                                          <i className="las la-check"></i>
                                         </div>
                                       </div>
                                     </li>
@@ -869,7 +869,7 @@ function AddNewProduct() {
                                             className="dnone"
                                             id={"sheilaLengthOptions" + index}
                                           >
-                                            <i class="las la-check"></i>
+                                            <i className="las la-check"></i>
                                           </div>
                                         </div>
                                       </li>
@@ -944,7 +944,7 @@ function AddNewProduct() {
                                           className="dnone"
                                           id={"sizeOptions" + index}
                                         >
-                                          <i class="las la-check"></i>
+                                          <i className="las la-check"></i>
                                         </div>
                                       </div>
                                     </li>

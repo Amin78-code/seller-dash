@@ -30,7 +30,7 @@ function TwoColTableWithHeading({ data, tableType, pageName }) {
             <td colSpan={5}>
             <div className="w-[100%] flex justify-center items-center h-[140px]">
               <div className="w-[100%]">
-                <i class="las la-frown text-[60px] block text-center text-[#909294] mt-[22px]"></i>
+                <i className="las la-frown text-[60px] block text-center text-[#909294] mt-[22px]"></i>
                 <h5 className="fwr text-[#212529] text-[20px] text-center pt-[5px]">
                   Nothing found
                 </h5>
@@ -65,12 +65,12 @@ function TwoColTableWithHeading({ data, tableType, pageName }) {
                         <div>
                           <Link href="/dashboard/products/edit">
                             <button className="44 w-[34.1px] h-[34.1px] rounded-full taPoint3 bg-[#25bcf126] hover:bg-[#25bcf1] flex justify-center items-center group">
-                              <i class="las la-edit text-[#25bcf1] taPoint3 group-hover:text-[#fff]"></i>
+                              <i className="las la-edit text-[#25bcf1] taPoint3 group-hover:text-[#fff]"></i>
                             </button>
                           </Link>
                         </div>
                         <button className="55 w-[34.1px] h-[34.1px] rounded-full taPoint3 bg-[#ef486a26] hover:bg-[#ef486a] flex justify-center items-center group">
-                          <i class="las la-trash text-[#ef486a] taPoint3 group-hover:text-[#fff]"></i>
+                          <i className="las la-trash text-[#ef486a] taPoint3 group-hover:text-[#fff]"></i>
                         </button>
                       </td>
                     ) : (

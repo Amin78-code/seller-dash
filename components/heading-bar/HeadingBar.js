@@ -22,7 +22,7 @@ function HeadingBar({ heading, lightHeadingBar, shopsPage }) {
             <a target="_blank">
             <button className="ffr text-[0.8125rem] text-[#e62e04] uppercase px-[1rem] h-[40px] leading-[40px] tracking-[.2em] border-[#e62e04] border-b-[1px] ml-[5px] flex items-center">
               (visit shop)
-              <i class="las la-external-link-alt"></i>
+              <i className="las la-external-link-alt"></i>
             </button>
             </a>
           </Link>
