@@ -1,12 +1,12 @@
 import React from "react";
 import Image from "next/image";
-import logoSquare from "../../assets/images/logo/logo-square.png";
-import vat from "../../assets/images/logo/vat.png";
+import logoSquare from "../../../assets/images/logo/logo-square.png";
+import vat from "../../../assets/images/logo/vat.png";
 import styles from "./hero.module.css";
-import heroImage from "../../assets/images/hero-image.jpg";
-import allIcons from "../../assets/images/icons/all-icons.svg";
-import ImgLazyLoad from "../../img-lazy-load/img-lazy-load";
-// import ImgLazyLoad from "../img-lazy-load/img-lazy-load";
+import heroImage from "../../../assets/images/hero-image.jpg";
+import allIcons from "../../../assets/images/icons/all-icons.svg";
+import ImgLazyLoad from "../img-lazy-load/Img-lazy-load";
+// import ImgLazyLoad from "../img-lazy-load/Img-lazy-load";
 
 function Hero() {
   return (
@@ -20,13 +20,13 @@ function Hero() {
           </span>
         </div>
         <div className="text-center pb-[60px] z-[0]">
-          <h2 className="fahkwang-light text-[#fff] text-[26px] leading-[1.1] tracking-[.2em] uppercase pb-[5px]">
-            HELLO SUMMER
+          <h2 className=" text-[#fff] text-[26px] leading-[1.1] tracking-[.2em] uppercase pb-[5px]">
+            أهلًا بالصيف
           </h2>
           <button
-            className={`${styles.orange_anim_btn} relative work-regular text-[#fff] text-[13px] leading-[1.1] tracking-[.2em] uppercase px-[4px] py-[8px]`}
+            className={`${styles.orange_anim_btn} relative text-[#fff] text-[13px] leading-[1.1] tracking-[.2em] uppercase px-[4px] py-[8px]`}
           >
-            shop now
+            تسوقي الآن
           </button>
         </div>
       </section>

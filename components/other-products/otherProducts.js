@@ -6,9 +6,9 @@ import styles from "./otherProducts.module.css";
 import heroImage from "../../assets/images/hero-image.jpg";
 import productImg from "../../assets/images/products/product2.jpg";
 import { data } from "autoprefixer";
-import ProductCard from "../product-card/productCard";
+import ProductCard from "../product-card/ProductCard";
 
-function OtherProducts({data}) {
+function OtherProducts({ data }) {
   return (
     <>
       <div className="w[100%] pt-[30px]">

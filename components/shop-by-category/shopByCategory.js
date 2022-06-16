@@ -5,7 +5,7 @@ import blackImg from "../../assets/images/categories/black.jpg";
 import eveningImg from "../../assets/images/categories/evening.jpg";
 import formalImg from "../../assets/images/categories/formal.jpg";
 import casualImg from "../../assets/images/categories/casual.jpg";
-import ShopByCategorySection from "../shop-by-category-section/shopByCategorySection";
+import ShopByCategorySection from "../shop-by-category-section/ShopByCategorySection";
 import allIcons from "../../assets/images/icons/all-icons.svg";
 
 function ShopByCategory() {

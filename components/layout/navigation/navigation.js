@@ -1,7 +1,7 @@
 import React, { useState, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { IoChevronDown } from "react-icons/io5";
+import { IoChevronDown, IoCloseOutline } from "react-icons/io5";
 import { BsInstagram, BsWhatsapp } from "react-icons/bs";
 import { AiOutlineClose } from "react-icons/ai";
 import logo from "../../../assets/images/logo/logo.svg";
@@ -26,6 +26,7 @@ function Navigation() {
     }
   };
   const cartToggler = () => {
+    console.log("cartogg called")
     if (!cartToggleClasses.includes("visibility-visible")) {
       setCartToggleClasses(["visibility-visible"]);
     } else {
@@ -267,16 +268,16 @@ function Navigation() {
               onClick={() => searchToggler()}
             ></div>
           </div>
-          <div className="px-[10px] flex items-center border-r-[0px] border-[#e2e5ec] order-3     sm:order-[unset] sm:border-r-[1px]">
+          <div className="px-[10px] py-[10px] flex items-center border-r-[0px] border-[#e2e5ec] order-3     sm:order-[unset] sm:border-r-[1px]">
             {/* cart icon for desktop */}
             <div className="cart-icon-div relative hidden     lg:block">
               <div
-                className="my-icon bag w-[21px] h-[19px] cursor-pointer relative z-[4] bgAllIcon bg-[left_-10px_top_-151px]"
+                className="my-icon bag w-[21px] h-[19px] cursor-pointer relative z-[0] bgAllIcon bg-[left_-10px_top_-151px]"
                 onClick={() => cartToggler()}
               ></div>
 
               <div
-                className={`mt-[-20px] card-sm-box min-w-[110px] w-[322px] absolute top-[30px] left-[50%] translate-x-[-43%] hidden`}
+                className={`mt-[0px] card-sm-box min-w-[110px] w-[322px] absolute top-[30px] left-[50%] translate-x-[-43%] hidden`}
               >
                 <div
                   className={` mt-[20px] ${styles.card_sm_box} bg-[#fff]  p-[20px] border-[#fbf1e8] border-[1px] `}
@@ -347,7 +348,7 @@ function Navigation() {
             </div>
             {/* cart icon for mob */}
 
-            <div className="my-icon bag w-[21px] h-[19px] cursor-pointer relative z-4 bgAllIcon bg-[left_-10px_top_-151px] block     lg:hidden"></div>
+            <div onClick={() => cartToggler()} className="my-icon bag w-[21px] h-[19px] cursor-pointer relative z-[0] bgAllIcon bg-[left_-10px_top_-151px] block     lg:hidden"></div>
             <span className="work-regular text-[12px] ml-[7px] pt-[3px]">
               1
             </span>
@@ -368,7 +369,7 @@ function Navigation() {
             </Link>
           </div>
           <div className="pl-[0px] pr-[18px] pb-[9px] order-1      sm:order-[unset] sm:pl-[5px] sm:pr-[10px] sm:pb-[4px]">
-            <a href="#" className="almarai-regular text-[13px] cursor-pointer">
+            <a href=" /ar" className="almarai-regular text-[13px] cursor-pointer">
               عربي
             </a>
           </div>
@@ -623,14 +624,14 @@ function Navigation() {
         <div
           className={`${styles.mob_menu} ${cartToggleClasses.join(
             " "
-          )} cart-box fixed top-0 left-0 w-[100%] h-[100vh] z-[4]`}
+          )} cart-box fixed top-0 left-0 w-[100%] h-[100vh]`}
         >
           <div
             className={`menu-overlay absolute top-0 left-0 w-[100%] h-[100%] bg-[#00000080] opacity-0`}
           ></div>
           <AiOutlineClose className="text-[26px] text-[#fff] absolute top-[15px] right-[20px]" />
           <div
-            className={`mob-menu-white-div h-[100vh] bg-[#fff] px-[20px] pt-[15px] pb-[20px] absolute translate-x-[140%] border-l-[1px] border-[#fbf1e8]`}
+            className={`mob-menu-white-div h-[100vh] bg-[#fff] px-[20px] py-[20px] absolute translate-x-[140%] border-l-[1px] border-[#fbf1e8]`}
           >
             <div className="flex justify-between border-b-[1px] border-[#ededed]">
               <h6 className="fwl text-[13px] text-[#1b1b28] tracking-[0.5px] capitalize pb-[15px]">
@@ -638,10 +639,10 @@ function Navigation() {
                 {/* your bag is empty */}
               </h6>
               <div className="flex justify-end">
-                <div
-                  className="w-[21px] h-[19px] cursor-pointer bgAllIcon  absolute top-[15px] right-[20px] bg-[left_-22px_top_-37px] tScalePoint8"
+                <IoCloseOutline
                   onClick={() => cartToggler()}
-                ></div>
+                  className="text-[28px] text-[#000] mx-[0px] mb-[15px] mt-[-5px] cursor-pointer"
+                />
               </div>
             </div>
 
@@ -713,14 +714,10 @@ function Navigation() {
               />
             </label>
           </div>
-          {/* <AiOutlineClose
+          <AiOutlineClose
             onClick={() => searchToggler()}
             className="text-[26px] text-[#000] absolute top-[15px] right-[20px]"
-          /> */}
-          <div
-            className="w-[21px] h-[19px] cursor-pointer bgAllIcon  absolute top-[15px] right-[25px] bg-[left_-22px_top_-37px]"
-            onClick={() => searchToggler()}
-          ></div>
+          />
         </div>
       </nav>
     </>

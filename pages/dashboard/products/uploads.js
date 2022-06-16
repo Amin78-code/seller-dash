@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import Layout from "../../../components/layout/layout";
+import Layout from "../../../components/layout/Layout";
 import AdminPanelLayout from "../../../components/dashboard/admin-panel-layout/AdminPanelLayout";
 import TitleAndTableCard from "../../../components/dashboard/title-and-table-card/TitleAndTableCard";
 import TableHeader from "../../../components/dashboard/table-header/TableHeader";
@@ -14,6 +14,7 @@ import Sleeves from "../../../components/dashboard/sleeves/Sleeves";
 import ProductPriceStock from "../../../components/dashboard/product-price-stock/ProductPriceStock";
 import ChooseImage from "../../../components/dashboard/choose-image/ChooseImage";
 import ChooseImageModal from "../../../components/dashboard/choose-image-modal/ChooseImageModal";
+import Options from "../../../components/dashboard/options";
 
 const ordersData = [
   { title: "Total orders", value: "0" },
@@ -43,7 +44,7 @@ const productDescription = [
   {
     name: "size & fit",
     placeholder: "Choose size & fit",
-    options: ["oversized fit", "relaxed fit", "regular fit", "stretchy"],
+    options: ["Oversized fit", "Relaxed fit", "Regular fit", "Stretchy"],
   },
   {
     name: "fabric type",
@@ -86,11 +87,11 @@ const productDescription = [
     name: "fabric weight",
     placeholder: "Choose fabric weight",
     options: [
-      "very warm",
-      "warm",
-      "midweight",
-      "lightweight",
-      "cool lightweight",
+      "Very warm",
+      "Warm",
+      "Midweight",
+      "Lightweight",
+      "Cool lightweight",
     ],
   },
   {
@@ -112,11 +113,11 @@ const productDescription = [
     name: "shipping & returns",
     placeholder: "Choose fabric weight",
     options: [
-      "very warm",
-      "warm",
-      "midweight",
-      "lightweight",
-      "cool lightweight",
+      "Very warm",
+      "Warm",
+      "Midweight",
+      "Lightweight",
+      "Cool lightweight",
     ],
   },
 ];
@@ -179,14 +180,19 @@ const galleryImageData = {
   imageResolution: "(900x1200)",
 };
 
+const productCategories = ["Abaya", "Kaftan", "Dress", "Farwa", "Kimono"]
+
 
 function AddNewProduct() {
-  const [productCategories, setProductCategories] = useState(["Abaya", "Kaftan", "Dress", "Farwa", "Kimono"]);
+  useEffect(() => {
+    document.querySelector("body").style.direction = 'rtl'
+  }, [])
   const [productCategoriesForShow, setProductCategoriesForShow] = useState(["Abaya", "Kaftan", "Dress", "Farwa", "Kimono"]);
 
 
+  const [matchedOptions, setMatchedOptions] = useState([])
 
-  
+
 
   // let initialData = [];
   //  useEffect(() => {
@@ -196,11 +202,12 @@ function AddNewProduct() {
   //   }
   // }, []);
 
-  
+
 
 
 
   const [selectedCategory, setSelectedCategory] = useState("Abaya");
+
   const [selectedType, setSelectedType] = useState("Choose Type");
   const [selectedSizeAndFit, setSelectedSizeAndFit] =
     useState("Choose Size & Fit");
@@ -247,6 +254,17 @@ function AddNewProduct() {
     setSelectedCategory(selectedOption);
     openCategorySelect();
   };
+  const [newProductDescription, setNewProductDescription] = useState(productDescription)
+
+  function optionsHandler(e, values, value) {
+    let current = productDescription.find((item) => item.name == value.name)
+    console.log(current)
+    setNewProductDescription(newProductDescription)
+    let text = e.target.value.toUpperCase()
+    const items = values.filter((item) => item.startsWith(text))
+    setMatchedOptions(items)
+    console.log(value)
+  }
 
   const openSelect = (dropdownName, index) => {
     let allOptions = [];
@@ -609,19 +627,19 @@ function AddNewProduct() {
     //  remaining to do
   };
 
-  const changeHandler = (event, filterName) => {
+  const changeHandler = (e, filterName) => {
 
 
-    console.log("initialData", initialData);
+    console.log("initialData", e, filterName);
 
     let _productCategories = filterName;
     // setProductCategories(_productCategories);
     let __productCategories = [];
-      // setProductCategoriesForShow(_productCategories);
+    // setProductCategoriesForShow(_productCategories);
     for (let i = 0; i < _productCategories.length; i++) {
-       __productCategories.push(filterName[i].toLowerCase())
+      __productCategories.push(filterName[i].toLowerCase())
     }
-    const startsWithN = __productCategories.filter((country) => country.startsWith(event.target.value.toLowerCase()));
+    const startsWithN = __productCategories.filter((country) => country.startsWith(e.target.value.toLowerCase()));
     setProductCategoriesForShow(startsWithN);
   };
 
@@ -670,8 +688,8 @@ function AddNewProduct() {
                             <div className="w-[100%] mt-[0px] py-[10px] bg-[#fff] z-[2] border-[1px] border-[#00000026] drop-shadow-[0_0px_50px_rgba(82,63,105,15%)]">
                               <div className="py-[4px] px-[8px]">
                                 <input
-                                // kam
-                                  onChange={() => changeHandler(event,productCategories)}
+                                  // kam
+                                  onChange={(e) => changeHandler(e, productCategories)}
                                   className="admin-input w-[100%] h-[44px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#ced4da] rounded-[.25rem] py-[0.375rem] px-[0.75rem]"
                                 />
                               </div>
@@ -679,13 +697,12 @@ function AddNewProduct() {
                                 {productCategoriesForShow.map((value, index) => {
                                   return (
                                     <li
-                                    key={index * 4}
+                                      key={index * 4}
                                       onClick={() => setCategory(value)}
-                                      className={`${
-                                        value == selectedCategory
-                                          ? styles.active_option
-                                          : ""
-                                      } capitalize block text-[#212529] text-[1rem] py-[0.25rem] px-[1rem] hover:bg-[#c53a24] hover:text-[#fff] taPoint3`}
+                                      className={`${value == selectedCategory
+                                        ? styles.active_option
+                                        : ""
+                                        } capitalize block text-[#212529] text-[1rem] py-[0.25rem] px-[1rem] hover:bg-[#c53a24] hover:text-[#fff] taPoint3`}
                                     >
                                       {value}
                                     </li>
@@ -748,15 +765,15 @@ function AddNewProduct() {
                             <div className="w-[100%] mt-[0px] py-[10px] bg-[#fff] z-[2] border-[1px] border-[#00000026] drop-shadow-[0_0px_50px_rgba(82,63,105,15%)]">
                               <div className="py-[4px] px-[8px]">
                                 <input
-                                // onChange={() => changeHandler(event,productVariations)}
-                                className="admin-input w-[100%] h-[44px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#ced4da] rounded-[.25rem] py-[0.375rem] px-[0.75rem] cursor-pointer" />
+                                  // onChange={() => changeHandler(event,productVariations)}
+                                  className="admin-input w-[100%] h-[44px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#ced4da] rounded-[.25rem] py-[0.375rem] px-[0.75rem] cursor-pointer" />
                               </div>
                               <ul className="max-h-[160px] overflow-auto">
                                 {productVariations.colors.map(
                                   (value, index) => {
                                     return (
                                       <li
-                                      key={value.name + 1}
+                                        key={value.name + 1}
                                         onClick={() =>
                                           settingSelectedColor(value, index)
                                         }
@@ -794,9 +811,8 @@ function AddNewProduct() {
                       />
                       <div className="fwl w-[100%]     lg:w-[62.5%] pl-0     lg:pl-[15px] pr-0    lg:pr-[5px]">
                         <div
-                          className={`${
-                            isDisableSheila ? styles.disable_div : ""
-                          } admin-input relative w-[100%] h-[44px] leading-[30px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#e2e5ec] rounded-[.25rem] py-[0.375rem] px-[0.75rem] cursor-pointer       before:absolute before:w-[0] before:h-[0] before:border-[4px] before:border-t-[#b7b7b7] before:border-l-[transparent] before:border-r-[transparent] before:border-b-[transparent] before:top-[18px] before:right-[10px]`}
+                          className={`${isDisableSheila ? styles.disable_div : ""
+                            } admin-input relative w-[100%] h-[44px] leading-[30px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#e2e5ec] rounded-[.25rem] py-[0.375rem] px-[0.75rem] cursor-pointer       before:absolute before:w-[0] before:h-[0] before:border-[4px] before:border-t-[#b7b7b7] before:border-l-[transparent] before:border-r-[transparent] before:border-b-[transparent] before:top-[18px] before:right-[10px]`}
                         >
                           <span
                             onClick={() =>
@@ -818,7 +834,7 @@ function AddNewProduct() {
                                 {productVariations.colors.map((value, inde) => {
                                   return (
                                     <li
-                                    key={value.name + 1}
+                                      key={value.name + 1}
                                       onClick={() =>
                                         settingSelectedSheilaColor(value, inde)
                                       }
@@ -869,9 +885,8 @@ function AddNewProduct() {
                       />
                       <div className="fwl w-[100%]     lg:w-[62.5%] pl-0     lg:pl-[15px] pr-0    lg:pr-[5px]">
                         <div
-                          className={`${
-                            isDisableSheila ? styles.disable_div : ""
-                          } admin-input relative w-[100%] h-[44px] leading-[30px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#e2e5ec] rounded-[.25rem] py-[0.375rem] px-[0.75rem] cursor-pointer       before:absolute before:w-[0] before:h-[0] before:border-[4px] before:border-t-[#b7b7b7] before:border-l-[transparent] before:border-r-[transparent] before:border-b-[transparent] before:top-[18px] before:right-[10px]`}
+                          className={`${isDisableSheila ? styles.disable_div : ""
+                            } admin-input relative w-[100%] h-[44px] leading-[30px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#e2e5ec] rounded-[.25rem] py-[0.375rem] px-[0.75rem] cursor-pointer       before:absolute before:w-[0] before:h-[0] before:border-[4px] before:border-t-[#b7b7b7] before:border-l-[transparent] before:border-r-[transparent] before:border-b-[transparent] before:top-[18px] before:right-[10px]`}
                         >
                           <span
                             onClick={() =>
@@ -894,7 +909,7 @@ function AddNewProduct() {
                                   (value, index) => {
                                     return (
                                       <li
-                                      key={value + 1}
+                                        key={value + 1}
                                         onClick={() =>
                                           settingSelectedSheilaLength(
                                             value,
@@ -953,7 +968,7 @@ function AddNewProduct() {
                                 <>
                                   {sizeTitle.map((value) => {
                                     return (
-                                      <span key={value *2}>{value}, </span>
+                                      <span key={value * 2}>{value}, </span>
                                     );
                                   })}
                                 </>
@@ -972,7 +987,7 @@ function AddNewProduct() {
                                 {productVariations.size.map((value, index) => {
                                   return (
                                     <li
-                                    key={value.name + 1}
+                                      key={value.name + 1}
                                       onClick={() =>
                                         settingSelectedSize(value, index)
                                       }
@@ -1074,7 +1089,7 @@ function AddNewProduct() {
                     return (
                       <div
                         key={value * 3}
-                        className="fwr flex mb-[1rem] flex-col      lg:flex-row"
+                        className="fwr flex mb-[1rem] flex-col  lg:flex-row"
                       >
                         <p className="w-[100%]     lg:w-[37.5%] text-[#1b1b28] text-[13px] pl-0     lg:pl-[5px] capitalize pr-0     lg:pr-[5%]">
                           <span className="text-[#ff0032]">*</span>
@@ -1085,7 +1100,7 @@ function AddNewProduct() {
                           <div
                             className="admin-input relative w-[100%] h-[44px] leading-[30px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#e2e5ec] rounded-[.25rem] py-[0.375rem] px-[0.75rem] cursor-pointer    before:absolute before:w-[0] before:h-[0] before:border-[4px] before:border-t-[#b7b7b7] before:border-l-[transparent] before:border-r-[transparent] before:border-b-[transparent] before:top-[18px] before:right-[10px]"
                             id={"optionMainDiv" + index}
-                          > 
+                          >
                             <div
                               className="text-[#b7b7b7] text-[15px] tracking-0 uppercase h-[40px] overflow-hidden block"
                               onClick={() =>
@@ -1123,79 +1138,7 @@ function AddNewProduct() {
                                   : ""
                                 : ""}
                             </div>
-                            <div
-                              ref={typeSelect}
-                              className="absolute w-[100%] left-0 top-[43px] z-[2] dnone"
-                              id={"options" + index}
-                            >
-                              <div className="w-[100%] mt-[0px] py-[10px] bg-[#fff] z-[2] border-[1px] border-[#00000026] drop-shadow-[0_0px_50px_rgba(82,63,105,15%)]">
-                                <div className="py-[4px] px-[8px]">
-                                  {/* kam */}
-                                  <input
-                                    //  onChange={() => changeHandler(event)}
-                                      className="admin-input w-[100%] h-[44px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#ced4da] rounded-[.25rem] py-[0.375rem] px-[0.75rem]" />
-                                </div>
-                                <ul>
-                                  {value.options.map((valu) => {
-                                    return (
-                                      <li
-                                      key={valu + 1}
-                                        onClick={() => setOption(valu, index)}
-                                        className={`
-                                        
-                                        ${
-                                          index == 0
-                                            ? valu == selectedType
-                                              ? styles.active_option
-                                              : ""
-                                            : ""
-                                        }
-                                        ${
-                                          index == 1
-                                            ? valu == selectedSizeAndFit
-                                              ? styles.active_option
-                                              : ""
-                                            : ""
-                                        }
-                                          ${
-                                            index == 2
-                                              ? valu == selectedFabricType
-                                                ? styles.active_option
-                                                : ""
-                                              : ""
-                                          }
-                                            ${
-                                              index == 3
-                                                ? valu == selectedFabricWeight
-                                                  ? styles.active_option
-                                                  : ""
-                                                : ""
-                                            }
-                                              ${
-                                                index == 4
-                                                  ? valu ==
-                                                    selectedCareInstructions
-                                                    ? styles.active_option
-                                                    : ""
-                                                  : ""
-                                              }
-                                                ${
-                                                  index == 5
-                                                    ? valu ==
-                                                      selectedShippingAndReturns
-                                                      ? styles.active_option
-                                                      : ""
-                                                    : ""
-                                                }
-                                        block text-[#212529] text-[1rem] py-[0.25rem] px-[1rem] hover:bg-[#c53a24] hover:text-[#fff] overflow-hidden overflow-ellipsis whitespace-nowrap taPoint3`}
-                                      >
-                                        {valu}
-                                      </li>
-                                    );
-                                  })}
-                                </ul>
-                              </div>
-                            </div>
+                            <Options setOption={setOption} value={value} index={index} />
                           </div>
                         </div>
                       </div>

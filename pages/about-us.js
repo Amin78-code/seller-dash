@@ -1,15 +1,15 @@
 import React from "react";
-import Hero from "../components/hero/hero";
-import Layout from "../components/layout/layout";
-import ShopByCategory from "../components/shop-by-category/shopByCategory";
-import TextImgSection from "../components/text-img-section/textImgSection";
+import Hero from "../components/hero/Hero";
+import Layout from "../components/layout/Layout";
+import ShopByCategory from "../components/shop-by-category/ShopByCategory";
+import TextImgSection from "../components/text-img-section/TextImgSection";
 import katwalkBag from "../assets/images/designers/katwalk-bag.jpg";
-import Features from "../components/features/features";
-import HeadingAndText from "../components/heading-and-text/headingAndText";
+import Features from "../components/features/Features";
+import HeadingAndText from "../components/heading-and-text/HeadingAndText";
 import Image from "next/image";
 import printImg from "../assets/images/categories/1print.jpg";
 import styles from '../components/about.module.css';
-import ImgLazyLoad from "../components/img-lazy-load/img-lazy-load";
+import ImgLazyLoad from "../components/img-lazy-load/Img-lazy-load";
 
 function About() {
   const privacyPolicyContent = [
@@ -37,8 +37,8 @@ function About() {
         <div className="w-[100%] max-w-[1530px] h-[auto] mt-[120px] mb-[20px] px-[15px] mx-auto flex flex-col     xl:h-[790px] lg:flex-row md:px-[50px] nd:mt-[120px]">
           <div className={`${styles.left_img_main_div} max-w-[550px] w-[100%] image_container2`}>
             {/* <span className={`${styles.left_img_main_div} max-w-[550px] w-[100%] image_container2 block`}> */}
-              {/* <Image src={printImg} alt="image" /> */}
-              <ImgLazyLoad src={printImg} alt={"image"} classes={""} />
+            {/* <Image src={printImg} alt="image" /> */}
+            <ImgLazyLoad src={printImg} alt={"image"} classes={""} />
             {/* </span> */}
           </div>
           <div className="text-center max-w-[762px] px-[0px] mx-auto pt-[40px] pb-[20px]     lg:px-[80px] md:px-[20px] md:pt-[50px] md:pb-[50px]">

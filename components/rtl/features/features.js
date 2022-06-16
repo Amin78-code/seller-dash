@@ -1,12 +1,13 @@
 import React from "react";
 import Image from "next/image";
 import logoSquare from "../../../assets/images/logo/logo-square.png";
+import vat from "../../../assets/images/logo/vat.png";
 import heroImage from "../../../assets/images/hero-image.jpg";
 import bottle from "../../../assets/images/icons/bottle.png";
 import freeDelivery from "../../../assets/images/icons/free-delivery.png";
 import measurementTap from "../../../assets/images/icons/measurement-tap.png";
 import tags from "../../../assets/images/icons/tags.png";
-import FeaturesCard from "../../../features-card/features-card";
+import FeaturesCard from "../features-card/Features-card";
 import styles from "./features.module.css";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -26,23 +27,23 @@ function Features() {
   const features = [
     {
       img: freeDelivery,
-      title: "Free Delivery",
-      text: "Free delivery from our local designers",
+      title: "شحن محلي مجاني",
+      text: "شحن مجاني من المصممات السعوديات",
     },
     {
       img: measurementTap,
-      title: "Made to measure",
-      text: "We offer wide collection of made to measure pieces",
+      title: "تفصيل حسب المقاس",
+      text: "نقدم تشكيلة واسعة من القطع المفصلة حسب المقاس",
     },
     {
       img: bottle,
-      title: "Premium Package",
-      text: "All products are packaged with premium cotton bags",
+      title: "تغليف عالي الجودة",
+      text: "كيس قطني عالي الجودة لضمان وصول قطعتك بأحسن حال",
     },
     {
       img: tags,
-      title: "VAT + Shipping inclusive",
-      text: "All our prices includes VAT and shipping to your door",
+      title: "أسعار شاملة الشحن والضريبة",
+      text: "جميع أسعار القطع تشمل الضريبة والشحن إلى منزلك",
     },
   ];
   return (

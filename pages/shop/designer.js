@@ -2,14 +2,14 @@ import React from "react";
 import Image from "next/image";
 import nadaLineLogo from "../../assets/images/logo/nada-line.jpg";
 import nadaLineCover from "../../assets/images/designers/nada-line/cover.jpg";
-import Layout from "../../components/layout/layout";
+import Layout from "../../components/layout/Layout";
 import productImg1 from "../../assets/images/products/orange-1/img3.jpg";
 import productImg2 from "../../assets/images/products/product2.jpg";
 import productImg3 from "../../assets/images/products/product3.jpg";
 import productImg4 from "../../assets/images/products/product4.jpg";
-import ShopFilters from "../../components/shop-filters/shopFilters";
-import ProductCard from "../../components/product-card/productCard";
-import ImgLazyLoad from "../../components/img-lazy-load/img-lazy-load";
+import ShopFilters from "../../components/shop-filters/ShopFilters";
+import ProductCard from "../../components/product-card/ProductCard";
+import ImgLazyLoad from "../../components/img-lazy-load/Img-lazy-load";
 
 function DesignerDetail() {
   const otherProducts = [
@@ -71,14 +71,13 @@ function DesignerDetail() {
             <div className="w-[100%] h-[495px]">
               <span className="image_container">
                 {/* <Image src={nadaLineCover} alt="image" /> */}
-                <ImgLazyLoad src={nadaLineCover} alt={"image"} classes={""}  />
+                <ImgLazyLoad src={nadaLineCover} alt={"image"} classes={""} />
               </span>
             </div>
 
             <div className="absolute w-[220px] h-[220px] border-[1px] border-[#D2CED6] bg-[#fff] rounded-[50%] overflow-hidden bottom-[-100px] left-[50%] translate-x-[-50%]           lg:left-[110px] lg:translate-x-[0]">
               <div className="w-[100%] h-[400px]">
-                {/* <Image src={nadaLineLogo} alt="image" /> */}
-                <ImgLazyLoad src={nadaLineLogo} alt={"image"} classes={""}  />
+                <Image src={nadaLineLogo} alt="image" />
               </div>
             </div>
           </div>

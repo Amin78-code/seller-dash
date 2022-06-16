@@ -16,7 +16,7 @@ function Footer() {
             </span>
           </div>
           <ul
-            className={`${styles.footer_menu} flex justify-start flex-wrap gap-x-[40px] pr-[20px] hidden       md:flex lg:pr-[0] lg:gap-x-[15px] xl:gap-x-[40px]`}
+            className={`${styles.footer_menu} flex justify-start gap-x-[20px] pr-[20px] hidden    md:flex lg:pr-[0] `}
           >
             <li>
               <Link href="/about-us">
@@ -28,7 +28,7 @@ function Footer() {
             <li className="relative">
               <a
                 href="#"
-                className="work-regular text-[#fff] text-[12px] tracking-[0.05em] uppercase cursor-pointer"
+                className="work-regular text-[#fff] whitespace-nowrap text-[12px] tracking-[0.05em] uppercase cursor-pointer"
               >
                 Contact us
               </a>
@@ -77,7 +77,7 @@ function Footer() {
             <li>
               <a
                 href="#"
-                className="work-regular text-[#fff] text-[12px] tracking-[0.05em] uppercase cursor-pointer"
+                className="work-regular text-[#fff] whitespace-nowrap text-[12px] tracking-[0.05em] uppercase cursor-pointer"
               >
                 Join katwalk!
               </a>

@@ -1,7 +1,7 @@
 import React, { useState, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import Layout from "../../components/layout/layout";
+import Layout from "../../components/layout/Layout";
 import HeadingBar from "../../components/heading-bar/HeadingBar";
 import AdminPanelLayout from "../../components/dashboard/admin-panel-layout/AdminPanelLayout";
 import ManageProfileBasicInfo from "../../components/dashboard/manage-profile-basic-info/ManageProfileBasicInfo";

@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import Layout from "../../components/layout/layout";
+import Layout from "../../components/layout/Layout";
 import AdminPanelLayout from "../../components/dashboard/admin-panel-layout/AdminPanelLayout";
 import TitleAndTableCard from "../../components/dashboard/title-and-table-card/TitleAndTableCard";
 import TableHeader from "../../components/dashboard/table-header/TableHeader";
@@ -98,12 +98,17 @@ function AdminPanel() {
               <TitleAndTableCard width={"w-[100%]     lg:w-[62.5%] h-[100%]"}>
                 <TableHeader>Products</TableHeader>
                 <CardBody>
-                  <TwoColTableWithHeading data={productsData} pageName={'dashboardHomePage'} />
+                  <TwoColTableWithHeading
+                    data={productsData}
+                    pageName={"dashboardHomePage"}
+                  />
 
                   <Link href="/dashboard/products/uploads">
-                    <button className="light-brown-btn ffr text-[0.875rem] text-[#fff] leading-[40px] tracking-[0.5px] uppercase bg-[#c83e27] block px-[15px] mt-[20px] mx-auto">
-                      add new product
-                    </button>
+                    <a>
+                      <button className="light-brown-btn ffr text-[0.875rem] text-[#fff] leading-[40px] tracking-[0.5px] uppercase bg-[#c83e27] block px-[15px] mt-[20px] mx-auto">
+                        add new product
+                      </button>
+                    </a>
                   </Link>
                 </CardBody>
               </TitleAndTableCard>
@@ -120,11 +125,15 @@ function AdminPanel() {
                           <p className="fwr text-[#6b6e73] text-[13px] leading-[1.5] tracking-[0.5px] my-[13px]">
                             Manage &#38; organize your shop
                           </p>
-                          <button
-                            className={`ffr pink-btn h-[40px] text-[#e62e04] text-[0.875rem] text-center uppercase bg-[#e62e0426] tracking-[0.5px] taPoint3 py-[10px] px-[15px] cursor-pointer mx-auto`}
-                          >
-                            go to setting
-                          </button>
+                          <Link href="/dashboard/shops">
+                            <a>
+                              <button
+                                className={`ffr pink-btn h-[40px] text-[#e62e04] text-[0.875rem] text-center uppercase bg-[#e62e0426] tracking-[0.5px] taPoint3 py-[10px] px-[15px] cursor-pointer mx-auto`}
+                              >
+                                go to setting
+                              </button>
+                            </a>
+                          </Link>
                         </div>
                       </div>
                     </CardBody>
@@ -141,11 +150,15 @@ function AdminPanel() {
                           <p className="fwr text-[#6b6e73] text-[13px] leading-[1.5] tracking-[0.5px] my-[13px]">
                             Configure your payment method
                           </p>
-                          <button
-                            className={`ffr pink-btn h-[40px] text-[#e62e04] text-[0.875rem] text-center uppercase bg-[#e62e0426] tracking-[0.5px] taPoint3 py-[10px] px-[15px] cursor-pointer mx-auto`}
-                          >
-                            configure now
-                          </button>
+                          <Link href="/dashboard/profile">
+                            <a>
+                              <button
+                                className={`ffr pink-btn h-[40px] text-[#e62e04] text-[0.875rem] text-center uppercase bg-[#e62e0426] tracking-[0.5px] taPoint3 py-[10px] px-[15px] cursor-pointer mx-auto`}
+                              >
+                                configure now
+                              </button>
+                            </a>
+                          </Link>
                         </div>
                       </div>
                     </CardBody>

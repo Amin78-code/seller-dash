@@ -1,6 +1,6 @@
 import React, { useState, useRef } from "react";
 import Image from "next/image";
-import Layout from "../components/layout/layout";
+import Layout from "../components/layout/Layout";
 import img1 from "../assets/images/products/orange-1/img1.jpg";
 import img2 from "../assets/images/products/orange-1/img2.jpg";
 import img3 from "../assets/images/products/orange-1/img3.jpg";
@@ -8,10 +8,10 @@ import img4 from "../assets/images/products/orange-1/img4.jpg";
 import visa from "../assets/images/payment-methods/visa.png";
 import mada from "../assets/images/payment-methods/mada.png";
 import stcPay from "../assets/images/payment-methods/stc-pay.png";
-import Features from "../components/features/features";
-import HeadingAndText from "../components/heading-and-text/headingAndText";
-import ColorBox from "../components/color-box/colorBox";
-import ProductSlider from "../components/product-slider/product-slider";
+import Features from "../components/features/Features";
+import HeadingAndText from "../components/heading-and-text/HeadingAndText";
+import ColorBox from "../components/color-box/ColorBox";
+import ProductSlider from "../components/product-slider/Product-slider";
 import { IoCloseOutline } from "react-icons/io5";
 import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
 import Link from "next/link";
@@ -45,7 +45,6 @@ function ProductDetail() {
   //     productSleeves: "25",
   //   }
   // ];
-
   const productImages = [
     { image: img1 },
     { image: img2 },

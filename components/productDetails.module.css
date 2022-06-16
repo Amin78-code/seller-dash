@@ -29,3 +29,6 @@
   left: calc(50% - 50px);
   z-index: 20;
 }
+.color_main_div:hover {
+  outline: 1px dotted #757575 !important;
+}

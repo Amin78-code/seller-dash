@@ -8,9 +8,9 @@ import sizGuide from "../../assets/images/size-guide.jpg";
 import {
   IoCloseOutline
 } from "react-icons/io5";
-import ImgLazyLoad from "../img-lazy-load/img-lazy-load";
+import ImgLazyLoad from "../img-lazy-load/Img-lazy-load";
 
-function SizeGuideModal({toggleSizeGuideModal}) {
+function SizeGuideModal({ toggleSizeGuideModal }) {
   return (
     <>
       <div className="fixed top-0 left-0 bottom-0 right-0 bg-[#00000087] w-[100%] h-[100%] z-[30] flex justify-center items-center">

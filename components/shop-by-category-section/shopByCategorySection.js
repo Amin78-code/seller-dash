@@ -4,7 +4,7 @@ import Image from "next/image";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import ImgLazyLoad from "../img-lazy-load/img-lazy-load";
+import ImgLazyLoad from "../img-lazy-load/Img-lazy-load";
 
 function ShopByCategorySection({ data }) {
   const settings = {

@@ -1,20 +1,20 @@
 import React from "react";
 import Image from "next/image";
-import Hero from "../../components/hero/hero";
-import Layout from "../../components/layout/layout";
-import ShopByCategory from "../../components/shop-by-category/shopByCategory";
-import TextImgSection from "../../components/text-img-section/textImgSection";
+import Hero from "../../components/hero/Hero";
+import Layout from "../../components/layout/Layout";
+import ShopByCategory from "../../components/shop-by-category/ShopByCategory";
+import TextImgSection from "../../components/text-img-section/TextImgSection";
 import loginBgImg from "../../assets/images/login-bg.jpg";
 import loginBgImgMob from "../../assets/images/login-bg-mob.jpg";
-import Features from "../../components/features/features";
-import HeadingAndText from "../../components/heading-and-text/headingAndText";
+import Features from "../../components/features/Features";
+import HeadingAndText from "../../components/heading-and-text/HeadingAndText";
 import styles from "../../components/login.module.css";
-import ImgLazyLoad from "../../components/img-lazy-load/img-lazy-load";
+import ImgLazyLoad from "../../components/img-lazy-load/Img-lazy-load";
 
 function Login() {
   return (
 
-    <Layout footer={"none"}> 
+    <Layout footer={"none"}>
       {/* object-position: 'top' */}
       <div
         className={`${styles.login_main_div} overflow-hidden relative w-[100%] pt-[50px] flex justify-end items-start `}
@@ -26,7 +26,7 @@ function Login() {
           </span>
         </div>
         <div className={`${styles.login_bg_img_div} absolute w-[100%] h-[100%] z-[-1] block      sm:hidden`}>
-          <span className="image_container "> 
+          <span className="image_container ">
             {/* <Image src={loginBgImgMob} alt="image" /> */}
             <ImgLazyLoad src={loginBgImgMob} alt={"image"} classes={''} />
           </span>

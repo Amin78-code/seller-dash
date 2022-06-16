@@ -13,10 +13,10 @@ import {
   IoCloseOutline,
 } from "react-icons/io5";
 import DesignerFilter from "../designer-filter/designerFilter";
-import SizeFilter from "../size-filter/sizeFilter";
+import SizeFilter from "../size-filter/SizeFilter";
 import ColorFilter from "../color-filter/colorFilter";
 import PriceFilter from "../price-filter/priceFilter";
-import SortByFilter from "../sort-by-filter/sortByFilter";
+import SortByFilter from "../sort-by-filter/SortByFilter";
 
 const allDesigners = [
   {
@@ -143,7 +143,6 @@ function ShopFilters({ forDesigner }) {
 
   const allFiltersMainDiv = useRef(null);
   const resetAllFilterAndCrossDiv = useRef(null);
-  
 
   const [currectSelectedSize, setCurrectSelectedSize] = useState("");
   const [currectSelectedColor, setCurrectSelectedColor] = useState("");
@@ -173,7 +172,7 @@ function ShopFilters({ forDesigner }) {
   };
 
   useEffect(() => {
-    window.addEventListener("scroll", () => {
+    const scrollFuntion = () => {
       category_dropdown.current.classList.remove("f-in");
       size_dropdown.current.classList.remove("f-in");
       designer_dropdown.current.classList.remove("f-in");
@@ -192,7 +191,11 @@ function ShopFilters({ forDesigner }) {
       colorChevron.current.classList.remove("rotate180b");
 
       sortByChevron.current.classList.remove("rotate180b");
-    });
+    };
+    window.addEventListener("scroll", scrollFuntion());
+    return () => {
+      window.removeEventListener("scroll", scrollFuntion());
+    };
   }, []);
 
   function openDropdown(dropdownName) {
@@ -324,7 +327,10 @@ function ShopFilters({ forDesigner }) {
             >
               filters
             </h3>
-            <div className="flex  items-center hidden mb-[20px]" ref={resetAllFilterAndCrossDiv}>
+            <div
+              className="flex  items-center hidden mb-[20px]"
+              ref={resetAllFilterAndCrossDiv}
+            >
               <h3
                 className="fwl text-[#000] text-[13px] uppercase h-[34px] leading-[40px] cursor-pointer"
                 onClick={() => resetAllFilters()}
@@ -553,12 +559,9 @@ function ShopFilters({ forDesigner }) {
                 data={allDesigners}
               />
             </div>
-            <div
-              className="flex-1 single-filter relative cursor-pointer"
-             
-            >
+            <div className="flex-1 single-filter relative cursor-pointer">
               <div
-               onClick={() => openDropdown(size_dropdown)}
+                onClick={() => openDropdown(size_dropdown)}
                 className={`flex justify-between items-center  border-[#b1b1b1] border-b-[1px] lg:border-[0]`}
               >
                 <p className="fwl uppercase lg:capitalize text-[#1b1b28] text-[12px] lg:text-[11px] my-[8px] lg:my-[13px] px-[16px] h-[22px] leading-[22px] flex">
@@ -580,12 +583,9 @@ function ShopFilters({ forDesigner }) {
                 filterName={"sizeFilter"}
               />
             </div>
-            <div
-              className="flex-1 single-filter relative cursor-pointer"
-             
-            >
+            <div className="flex-1 single-filter relative cursor-pointer">
               <div
-               onClick={() => openDropdown(color_dropdown)}
+                onClick={() => openDropdown(color_dropdown)}
                 className={`flex justify-between items-center  border-[#b1b1b1] border-b-[1px] lg:border-[0]`}
               >
                 <p className="fwl uppercase lg:capitalize text-[#1b1b28] text-[12px] lg:text-[11px] my-[8px] lg:my-[13px] px-[16px] h-[22px] leading-[22px] flex">
@@ -610,10 +610,7 @@ function ShopFilters({ forDesigner }) {
                 filterName={"colorFilter"}
               />
             </div>
-            <div
-              className="flex-1 single-filter relative cursor-pointer"
-            
-            >
+            <div className="flex-1 single-filter relative cursor-pointer">
               <div
                 onClick={() => openDropdown(price_dropdown)}
                 className={`flex justify-between items-center  border-[#b1b1b1] border-b-[1px] lg:border-[0]`}
@@ -640,12 +637,9 @@ function ShopFilters({ forDesigner }) {
                 filterName={"prizeFilter"}
               />
             </div>
-            <div
-              className="flex-1 single-filter relative cursor-pointer"
-              
-            >
+            <div className="flex-1 single-filter relative cursor-pointer">
               <div
-              onClick={() => openDropdown(sort_by_dropdown)}
+                onClick={() => openDropdown(sort_by_dropdown)}
                 className={`flex justify-between items-center  border-[#b1b1b1] border-b-[1px] lg:border-[0]`}
               >
                 <p className="fwl uppercase lg:capitalize text-[#1b1b28] text-[12px] lg:text-[11px] my-[8px] lg:my-[13px] px-[16px] h-[22px] leading-[22px] flex">

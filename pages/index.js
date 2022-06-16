@@ -1,6 +1,6 @@
 import Head from "next/head";
 import Image from "next/image";
-import AllUsedIcons from "../components/allUsedIcons";
+import AllUsedIcons from "../components/AllUsedIcons";
 import styles from "../styles/Home.module.css";
 import About from "./about-us";
 import Checkout from "./checkout";
@@ -13,9 +13,14 @@ import Shop from "./shop.js";
 import Designers from "./designers";
 import DesignerDetail from "./shop/designer";
 import AdminPanel from "./dashboard/home";
+import { useEffect } from "react";
 
 export default function Home() {
+  useEffect(() => {
+    document.querySelector("body").style.direction = 'ltr'
+  }, [])
   return (
+
     <>
       <HomePage />
       {/* <PrivacyPolicy /> */}

@@ -7,7 +7,7 @@ import bottle from "../../assets/images/icons/bottle.png";
 import freeDelivery from "../../assets/images/icons/free-delivery.png";
 import measurementTap from "../../assets/images/icons/measurement-tap.png";
 import tags from "../../assets/images/icons/tags.png";
-import FeaturesCard from "../features-card/features-card";
+import FeaturesCard from "../features-card/Features-card";
 import styles from "./features.module.css";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";

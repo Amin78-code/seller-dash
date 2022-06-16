@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import Layout from "../../components/layout/layout";
+import Layout from "../../components/layout/Layout";
 import AdminPanelLayout from "../../components/dashboard/admin-panel-layout/AdminPanelLayout";
 import TitleAndTableCard from "../../components/dashboard/title-and-table-card/TitleAndTableCard";
 import TableHeader from "../../components/dashboard/table-header/TableHeader";

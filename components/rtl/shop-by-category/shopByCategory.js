@@ -1,47 +1,47 @@
 import React from "react";
-import springImg from "../../assets/images/categories/spring.jpg";
-import printImg from "../../assets/images/categories/print.jpg";
-import blackImg from "../../assets/images/categories/black.jpg";
-import eveningImg from "../../assets/images/categories/evening.jpg";
-import formalImg from "../../assets/images/categories/formal.jpg";
-import casualImg from "../../assets/images/categories/casual.jpg";
-import ShopByCategorySection from "../../shop-by-category-section/shopByCategorySection";
-import allIcons from "../../assets/images/icons/all-icons.svg";
+import springImg from "../../../assets/images/categories/spring.jpg";
+import printImg from "../../../assets/images/categories/print.jpg";
+import blackImg from "../../../assets/images/categories/black.jpg";
+import eveningImg from "../../../assets/images/categories/evening.jpg";
+import formalImg from "../../../assets/images/categories/formal.jpg";
+import casualImg from "../../../assets/images/categories/casual.jpg";
+import ShopByCategorySection from "../shop-by-category-section/ShopByCategorySection";
+import allIcons from "../../../assets/images/icons/all-icons.svg";
 
 function ShopByCategory() {
   const shopByStyle = {
-    title: "SHOP BY STYLE",
-    text: "Explore what's trending and shop by your favorite style.",
+    title: "تسوقي حسب الموضة",
+    text: "اكتشفي آخر صيحات الموضة وتسوقي حسب ستايلك المفضل",
     subCategories: [
       {
         img: springImg,
-        name: "spring",
+        name: "الربيع",
       },
       {
         img: printImg,
-        name: "print",
+        name: "طبعة",
       },
       {
         img: blackImg,
-        name: "black",
+        name: "أسود",
       },
     ],
   };
   const shopByOccasion = {
-    title: "SHOP BY Occasion",
-    text: "We've got your look for every occasion!",
+    title: "تسوق حسب المناسبة",
+    text: "اختياركِ في كل مناسبة",
     subCategories: [
       {
         img: eveningImg,
-        name: "evening",
+        name: "سهرة",
       },
       {
         img: formalImg,
-        name: "formal",
+        name: "رسمي",
       },
       {
         img: casualImg,
-        name: "casual",
+        name: "كاجول",
       },
     ],
   };

@@ -46,14 +46,13 @@ function PriceFilterItem({
   currectSelected,
   filterName,
 }) {
-  
+
   return (
     <>
       {/* ${styles.active} */}
       <p
-        className={`${
-          currectSelected == data ? styles.active : ""
-        } size-box taPoint3 cursor-pointer fwl w-[48%] h-[48px] border-[#fbf1e8] border-[1px] flex justify-center items-center text-[#1b1b28] text-[13px] leading-[13px] p-[5px] pr-[8px]`}
+        className={`${currectSelected == data ? styles.active : ""
+          } size-box taPoint3 cursor-pointer fwl w-[48%] h-[48px] border-[#fbf1e8] border-[1px] flex justify-center items-center text-[#1b1b28] text-[13px] leading-[13px] p-[5px] pr-[8px]`}
         onClick={() => choosingFilterOption(data, filterName)}
       >
         {data}
