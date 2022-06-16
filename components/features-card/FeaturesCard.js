@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import styles from "./FeaturesCard.module.css";
-import ImgLazyLoad from "../img-lazy-load/Img-lazy-load";
+import ImgLazyLoad from "../img-lazy-load/ImgLazyLoad";
 
 function FeaturesCard({ data }) {
   return (
