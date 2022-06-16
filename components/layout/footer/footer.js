@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import logoSquare from "../../../assets/images/logo/logo-square.png";
 import vat from "../../../assets/images/logo/vat.png";
-import styles from "./footer.module.css";
+import styles from "./Footer.module.css";
 import Link from "next/link";
 
 function Footer() {

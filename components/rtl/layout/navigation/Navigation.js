@@ -7,7 +7,7 @@ import { IoChevronDown, IoCloseOutline } from "react-icons/io5";
 import logoSquare from "../../../../assets/images/logo/logo-square.png";
 import logo from "../../../../assets/images/logo/katwalk_logo_arabic.svg";
 import dress1 from "../../../../assets/images/products/dress1.jpg";
-import styles from "./navigation.module.css";
+import styles from "./Navigation.module.css";
 
 function Navigation() {
   const dropdown1 = useRef(null);

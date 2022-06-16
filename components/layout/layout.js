@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import GoToTop from "../go-to-top/Go-to-top";
+import GoToTop from "../go-to-top/GoToTop";
 import Footer from "./footer/Footer";
 import Navigation from "./navigation/Navigation";
 

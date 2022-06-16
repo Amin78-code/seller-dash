@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import logoSquare from "../../assets/images/logo/logo-square.png";
 import vat from "../../assets/images/logo/vat.png";
-import styles from "./otherProducts.module.css";
+import styles from "./OtherProducts.module.css";
 import heroImage from "../../assets/images/hero-image.jpg";
 import productImg from "../../assets/images/products/product2.jpg";
 import { data } from "autoprefixer";

@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import GoToTop from "../../go-to-top/Go-to-top";
+import GoToTop from "../../go-to-top/GoToTop";
 import styles from "./AdminPanelLayout.module.css";
 import SideBar from "./sidebar/SideBar";
 import BottomBar from "./bottom-bar/BottomBar";

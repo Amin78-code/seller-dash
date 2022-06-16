@@ -5,7 +5,7 @@ import { IoChevronDown, IoCloseOutline } from "react-icons/io5";
 import { BsInstagram, BsWhatsapp } from "react-icons/bs";
 import { AiOutlineClose } from "react-icons/ai";
 import logo from "../../../assets/images/logo/logo.svg";
-import styles from "./navigation.module.css";
+import styles from "./Navigation.module.css";
 import logoSquare from "../../../assets/images/logo/logo-square.png";
 import dress1 from "../../../assets/images/products/dress1.jpg";
 
