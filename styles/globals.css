@@ -4,6 +4,7 @@
 html {
   scroll-behavior: smooth;
 }
+
 @font-face {
   font-family: "Work";
   src: url("../assets/fonts/work-sans/WorkSans-Regular.ttf");
