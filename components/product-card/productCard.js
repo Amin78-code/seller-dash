@@ -2,7 +2,6 @@ import React, { useState, } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import MessageBox from "../message-box/MessageBox";
-import blurImg from "../../assets/images/blurimg-min.jpg";
 import ImgLazyLoad from "../img-lazy-load/Img-lazy-load";
 
 function ProductCard({ data, newTag }) {
