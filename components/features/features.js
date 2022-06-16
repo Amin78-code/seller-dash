@@ -8,7 +8,7 @@ import freeDelivery from "../../assets/images/icons/free-delivery.png";
 import measurementTap from "../../assets/images/icons/measurement-tap.png";
 import tags from "../../assets/images/icons/tags.png";
 import FeaturesCard from "../features-card/FeaturesCard";
-import styles from "./features.module.css";
+import styles from "./Features.module.css";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
